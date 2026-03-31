@@ -54,7 +54,7 @@
         }
     },
     footer: context {
-        if counter(page).get().first() > 1 {
+        if counter(page).get().first() > 3 {
             align(center, counter(page).display())
         }
     },
@@ -72,6 +72,23 @@
 
 // pagina de garda
 
+
+
+// #grid(
+//     columns: (1fr, 1fr),
+//     align: (left + horizon, right + horizon),
+//     gutter: 0pt,
+//     image("./image2.png", height: 2.2cm),
+//     [
+//         #text(size: 10.5pt, weight: "semibold")[Universitatea _Transilvania_ din Brașov] \
+//         #v(-0.5em)
+//         #text(size: 10.5pt)[Facultatea de Inginerie Electrică și Știința Calculatoarelor] \
+//         #v(-0.5em)
+//         #text(size: 10.5pt)[Departamentul Automatică și Tehnologia Informației]
+//     ],
+// )
+
+
 #grid(
     columns: (2.4cm, 1fr, 2.4cm),
     align: (left + horizon, center + horizon, right + horizon),
@@ -86,15 +103,17 @@
     ],
     image("./image2.png", height: 2.2cm),
 )
-
-#v(10pt)
+//
+#v(5pt)
 #line(length: 100%, stroke: 0.5pt + rgb("#333333"))
+
+
 // #v(0pt)
 // #line(length: 100%, stroke: 2pt + rgb("#003366"))
 #v(1fr)
 
 #align(center)[
-    #text(size: 13pt, tracking: 2pt, fill: rgb("#555555"))[Analiza și Sinteza Circuitelor]
+    #text(size: 13pt, tracking: 2pt, fill: rgb("#555555"))[Analiza și Sinteza Circuitelor Numerice]
     #v(10pt)
     #text(size: 26pt, weight: "bold")[PROIECT DE DISCIPLINĂ]
     #v(10pt)
@@ -138,6 +157,12 @@
 
 // inserez cerinta
 
+// #page(
+//   background: image("ASCN I Tema 16-2026.pdf"),
+//
+//   [Something]
+// )
+
 #image("ASCN I Tema 16-2026.pdf", page: 1)
 #image("ASCN I Tema 16-2026.pdf", page: 2)
 
@@ -150,57 +175,144 @@
 
 #set heading(numbering: "1.1.")
 
-// CERINTA
 
-#v(2em);
-
-#text[
-    #align(center)[
-        = Fisa Proiectului de Disciplina
-    ]
-
-
-    #v(after_title);
-
-    Decodificatorul BCD este Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-    est laborum.
-
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-]
-
-#pagebreak();
 
 // DESCRIEREA PROIECTULUI
 
 #v(2em);
 
-#text[
-    #align(center)[
-        = Descrierea Proiectului
-    ]
-
-    #v(after_title);
-
-    Decodificatorul BCD este Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-    est laborum.
-
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+#align(center)[
+    = Descrierea Proiectului
 ]
+
+#v(after_title)
+
+Decodificatorul este un circuit logic combinational ce are rolul de a transforma, sau traduce, informatia din format
+binar (cod masina) in alt format. Acronimul BCD provine de la `Binary-Code Decimal`. In sistemul BCD, fiecare cifra a
+unui numar zecimal (de la 0 la 9) este reprezentata individual printr-un grup unic de n biti, formand un decodificator
+de n biti. Caracterul de circuit logic combinational consta dependenta completa a valorilor de iesire fata de valorile
+de intrare. Matematic, decodificatorul, fiind un circuit combinational si totadata un sistem, are un comportament ce
+poate fi descris de o functie de transfer, sau multiple functii de transfer, ce in acest caz se numesc functii de
+comutare.
+
+Un decodificator se supune analizei intr-un mod identic din punct de vedere conceptual unui circuit combinational. In
+esenta, un circuit combinational cu intrarile $#x1, #x2, ..., x_n$ si iesirle $z_1, z_2, ..., z_m$ este modelat de
+sistemul de functii de mai jos, numite si functiile proprii ale circuitului.
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    $
+        z_1 & = f(#x1, #x2, #x3, ..., x_n) \
+        z_2 & = f(#x1, #x2, #x3, ..., x_n) \
+        z_3 & = f(#x1, #x2, #x3, ..., x_n) \
+        z_4 & = f(#x1, #x2, #x3, ..., x_n) \
+            & dots.v \
+        z_m & = f(#x1, #x2, #x3, ..., x_n)
+    $,
+    figure(
+        image("clc.png", width: 100%),
+        caption: [Circuit Logic Combinational],
+    ),
+)
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    figure(
+        image("dcd.png", width: 100%),
+        caption: [Decodificator BCD 7 segmente cu 4 intrari.],
+    ),
+    [
+        #v(-1.6em)
+        Un decodificator 7 segmente este asociat cu renumitul afisaj numeric al cifrelor zecimale (fig. 3). Este format
+        din sapte segmente luminoase, de obicei diode eletroluminescente sau cristale lichide. In cazul de fata,
+        afisajului ii asociem un decodificatorul "2 din 5" /7 segmente. In cadrul proiectarii decodificatorului aceasta
+        se reflecta prin numarul de iesiri caruia ii corespunde un segment luminos. Un defodificator are de regula patru
+        intrari (fig. 2), dar in acest caz vor fi cinci.
+    ],
+)
+
+Codul binar de tip "m din n" este utilizat in principal pentru proprietățile sale de detecție a erorilor. Regula de bază
+a acestui cod impune ca, pentru orice cuvânt de cod valid, exact doi biți să se afle în starea logică 1, iar ceilalți
+trei biți să se afle în starea logică 0. Într-un sistem de transmisie, orice alterare a unui singur bit va distruge
+această proporție strictă, generând o stare invalidă care poate fi ușor detectată de circuit.
+
+// Tabelul de adevar al functiilor logice asociate decodificatorului reies din realizarea corespunderii codului pentru
+// cifra zecimala corespunzatoare si configuratia segmentelor de pe tubul de afisare, unde 1 inseamna ca LED-ul este
+// pornit, si 0 ca este stins.
+
+#pagebreak()
+
+Din punct de vedere pur conceptual, codul 2 din 5 este, în esența sa, un cod neponderat. Aceasta înseamnă că nu există o
+regulă matematică obligatorie care să asocieze fiecărei poziții a bitului o anumită valoare (pondere) fixă, astfel încât
+valoarea zecimală să fie obținută simplu, prin însumare, cum se întâmplă în cazul codului BCD natural (8421). Prin
+urmare, la nivelul sintezei decodificatorului, alocarea celor 10 combinații valide de biți pentru cifrele zecimale (de
+la 0 la 9) s-ar fi putut realiza într-un mod complet arbitrar.
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 1em,
+    inset: 10pt,
+    align(left)[
+        #let binar_zecimal = (
+            (0, 1, 1, 0, 0, 0),
+            (1, 0, 0, 0, 1, 1),
+            (2, 0, 0, 1, 0, 1),
+            (3, 0, 0, 1, 1, 0),
+            (4, 0, 1, 0, 0, 1),
+            (5, 0, 1, 0, 1, 0),
+            (6, 0, 1, 1, 0, 0),
+            (7, 1, 0, 0, 0, 1),
+            (8, 1, 0, 0, 1, 0),
+            (9, 1, 0, 1, 0, 0),
+        )
+        #figure(
+            table(
+                columns: 6,
+                align: center + horizon,
+                stroke: 0.5pt,
+                table.header(
+                    table.cell()[Cifra],
+                    table.cell[#x1],
+                    table.cell[#x2],
+                    table.cell[#x3],
+                    table.cell[#x4],
+                    table.cell[#x5],
+                ),
+
+                ..for row in binar_zecimal {
+                    row.map(str)
+                },
+            ),
+            caption: [Reprezentarea zecimal-bit.],
+        )
+    ],
+    align(right + horizon)[
+        #figure(
+            image("./resurse/figura-buna.png", height: 15%),
+            caption: [Notatiile segmentului tubului de afisare.],
+        )
+    ],
+)
+
+Deși natura neponderată a codului oferea libertate totală în alegerea stărilor, pentru a simplifica analiza circuitului,
+a minimiza complexitatea funcțiilor de comutare și a oferi o logică uman-lizibilă asocierii, în cadrul acestui proiect
+s-a optat pentru utilizarea unei convenții specifice.Pentru realizarea decodificatorului am optat pentru reprezentarea
+cifrelor de afisare in format binar utilizand conventia $7-4-2-1-0$, conform tabelului de mai jos. De asemenea, notarea
+segmentelor de pe afisaj este realizata in cadrul acestui proiect conform figurii 3. Această alegere transformă
+reprezentarea într-un cod pseudoponderat.
+
+
+Odată stabilită această corespondență la nivelul variabilelor de intrare, funcția decodificatorului este de a prelua
+cuvântul de 5 biți și de a excita corespunzător ieșirile către tubul cu 7 segmente ($a, b, c, d, e, f, g$). Un aspect
+crucial în proiectarea acestui circuit este gestionarea redundanței. Cele 5 variabile de intrare generează un spațiu de
+32 de combinații posibile. Dintre acestea, doar cele 10 listate mai sus sunt valide. Celelalte 22 de combinații
+reprezintă stări invalide. În sinteza ecuațiilor logice, aceste stări pot fi tratate ca stări indiferente ("don't care")
+pentru a minimiza drastic porțile logice necesare, sau pot fi direcționate intenționat către stingerea completă a
+afișajului, transformând decodificatorul într-un sistem capabil să filtreze vizual erorile de sistem.
 
 #pagebreak();
 
@@ -226,71 +338,18 @@
 #v(after_subtitle);
 
 #text[
-    Prima parte a cerintelor presupune reprezentarea functiilor logice asociate circuitului combinational in formele
-    FCD, FCC, FMD, FCD, tabele de adevar corespunzatoare functiilor si implementarea fiecarei functii logice cu porti
-    logice SI-NU. Pentru realizarea decodificatorului am optat pentru reprezentarea cifrelor de afisare in format binar
-    utilizand conventia $7-4-2-1-0$, conform tabelului de mai jos. De asemenea, notarea segmentelor de pe afisaj este
-    realizata in cadrul acestui proiect conform figurii 1.
+    Prima parte a procesului de proiectare si analiza vizează sinteza circuitului logic combinațional asociat
+    decodificatorului. Demersul analitic presupune parcurgerea mai multor pași esențiali, având ca punct de plecare
+    construirea tabelului de adevăr ce descrie comportamentul dorit al sistemului. Folosind tabela de adevar, se va
+    realiza extragerea functiilor logice in formele lor standard Forma Canonică Disjunctivă (FCD) și Forma Canonică
+    Conjunctivă (FCC).
 ]
 
 
-#grid(
-    columns: (1fr, 1fr),
-    gutter: 1em,
-    inset: 10pt,
-    align(left)[
-        #let binar_zecimal = (
-            (0, 1, 1, 0, 0, 0),
-            (1, 0, 0, 0, 1, 1),
-            (2, 0, 0, 1, 0, 1),
-            (3, 0, 0, 1, 1, 0),
-            (4, 0, 1, 0, 0, 1),
-            (5, 0, 1, 0, 1, 0),
-            (6, 0, 1, 1, 0, 0),
-            (7, 1, 0, 0, 0, 1),
-            (8, 1, 9, 9, 1, 0),
-            (9, 1, 9, 1, 0, 0),
-        )
-        #table(
-            columns: 6,
-            align: center + horizon,
-            stroke: 0.5pt,
-            table.header(
-                table.cell()[Cifra],
-                table.cell[#x1],
-                table.cell[#x2],
-                table.cell[#x3],
-                table.cell[#x4],
-                table.cell[#x5],
-            ),
-
-            ..for row in binar_zecimal {
-                row.map(str)
-            },
-        )
-    ],
-    align(right + horizon)[
-        #figure(
-            image("./resurse/figura-buna.png", width: 100%),
-            caption: [
-                Notatiile segmentului tubului de afisare.
-            ],
-        )
-    ],
-)
-
-#text[
-    Asadar, tabelul de adevar al functiilor logice asociate decodificatorului reies din realizarea corespunderii codului
-    pentru cifra zecimala corespunzatoare si configuratia segmentelor de pe tubul de afisare, unde 1 inseamna ca LED-ul
-    este pornit, si 0 ca este stins.
-]
-
-
-#pagebreak()
 
 #text[
     #align(left)[
-        === Formele Cononice ale Functiilor. Tabelul de Adevar. Diagrame Karnaugh
+        === Formele Canonice ale Functiilor. Tabelul de Adevar. Diagrame Karnaugh
     ]
 ]
 
@@ -311,6 +370,16 @@
 
 // = BCD (7-4-2-1-0) la 7 segmente
 
+#text[
+    Instrumentul fundamental în analiza și sinteza oricărui circuit logic combinațional este tabelul de adevăr. Acesta
+    reprezintă descrierea totala a funcționării sistemului, prin maparea fiecarei combinații posibile a variabilelor de
+    intrare la starea corespunzătoare a variabilelor de ieșire. Decodificatorul proiectat, are 5 intrări
+    (corespunzătoare bitului pentru fiecare pondere: 7, 4, 2, 1, 0), asadar, tabelul de adevăr va conține un număr total
+    de $2^5 = 32$ de linii. Pe fiecare linie se va regăsi configurația dorită pentru cele 7 ieșiri independente
+    (segmentele $a, b, c, d, e, f, g$). Doar 10 dintre aceste combinații de intrare reprezintă coduri valide pentru
+    cifrele zecimale. Celelalte 22 (de la 10 la 31) de combinații posibile sunt considerate ca stari indiferente si nu
+    sunt reprezentate.
+]
 
 #let bcd_data = (
     (0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0),
@@ -326,28 +395,55 @@
 )
 
 #align(center)[
-    Tabel Nr. 2 #v(-0.8em);
-    #table(
-        columns: 13,
-        align: center + horizon,
-        stroke: 0.5pt,
-        table.header(
-            table.cell(rowspan: 2)[*Cifra*],
-            table.cell(colspan: 5)[*BCD (7-4-2-1-0)*],
-            table.cell(colspan: 7)[*segmente*],
-            [*#x1*], [*#x2*], [*#x3*], [*#x4*], [*#x5*], [*a*], [*b*], [*c*], [*d*], [*e*], [*f*], [*g*],
+    #figure(
+        table(
+            columns: 13,
+            align: center + horizon,
+            stroke: 0.5pt,
+            table.header(
+                table.cell(rowspan: 2)[*Cifra*],
+                table.cell(colspan: 5)[*BCD (7-4-2-1-0)*],
+                table.cell(colspan: 7)[*segmente*],
+                [*#x1*], [*#x2*], [*#x3*], [*#x4*], [*#x5*], [*a*], [*b*], [*c*], [*d*], [*e*], [*f*], [*g*],
+            ),
+            ..for row in bcd_data {
+                row.map(str)
+            },
         ),
-        ..for row in bcd_data {
-            row.map(str)
-        },
+        caption: "Tabela de Adevar",
     )
 ]
 
 #text[
 
     ==== Obtinerea Functiilor FCC & FCD
-    Din acest tabel reies si formele functiilor fiecarui segment in forma canonica disjunctiva si forma canonica
-    conjunctiva.
+
+    #v(0.5em);
+
+    Odata ce am definit tabelul de adevar, fiecare segment de afeisare poate fi descris matematic de funcție logică de
+    comutare proprie ce are ca date de intrare #x1, #x2, #x3, #x4 si #x5 (ex. $a = f_a (x_1, x_2, x_3, x_4, x_5)$).
+    Aceste funcții sunt extrase direct din tabelul de adevăr sub două forme algebrice standardizate, numite forme
+    canonice. Aceste forme reprezintă traducerea directă a tabelului în expresii booleene.
+
+    In cazul de fata, decodificatorul are 5 intrări (cate un bit corespunzator fiecarei ponderi: 7, 4, 2, 1, 0). Tabelul
+    de adevăr va conține un număr total de $2^5 = 32$ de linii. Doar 10 dintre aceste combinații de intrare reprezintă
+    coduri valide pentru cifrele zecimale. Restul celor 22 de combinatii nu apar în funcționarea normală a unui sistem
+    2-din-5 fără erori, asadar, else sunt tratate ca stări indiferente.
+
+    Forma Canonică Disjunctivă, cunoscută în literatura de specialitate și sub denumirea de "sumă de produse" sau "sumă
+    de mintermeni", se obține analizând exclusiv acele linii din tabelul de adevăr pentru care funcția de ieșire are
+    valoarea logică 1.
+
+    Duala formei precedente este Forma Canonică Conjunctivă, ce este denumită și "produs de sume" sau "produs de
+    maxtermeni". Această formă se construiește concentrându-ne pe liniile din tabelul de adevăr în care funcția de
+    ieșire are valoarea logică 0.
+
+    Deși ambele forme canonice descriu același comportament și sunt logic echivalente, ele conțin cel mai mare număr
+    posibil de variabile și operații. În practică, expresiile extrase astfel din tabelul de adevăr nu sunt pe
+    implementate hardware ca atare, deoarece este ineficient, din cauza numarului mare de porți logice. Ele sunt punctul
+    teoretic de plecare obligatoriu pentru pasul următor: minimizarea funcțiilor logice.
+
+    #v(2.5em);
 
     // a
     #align(center)[
@@ -363,7 +459,7 @@
                 #x1 #x2n #x3n #x4n #x5 +
                 #x1 #x2n #x3n #x4 #x5n +
                 #x1 #x2n #x3 #x4n #x5n +
-                #x1 #x2 #x3n #x4n #x5n
+                #x1 #x2 #x3n #x4n #x5n = Sigma (5, 6, 10, 12, 17, 18, 20, 24)
             $,
         ) \
 
@@ -371,21 +467,21 @@
             "a",
             $
                 (#x1 + #x2 + #x3 + #x4n + #x5n) dot
-                (#x1 + #x2n + #x3 + #x4 + #x5n)
+                (#x1 + #x2n + #x3 + #x4 + #x5n) = Pi (1, 4)
             $,
         ) \ \
         // b
         #fcd(
             "b",
             $
+                #x1 #x2 #x3n #x4n #x5n +
                 #x1n #x2n #x3n #x4 #x5 +
                 #x1n #x2n #x3 #x4n #x5 +
                 #x1n #x2n #x3 #x4 #x5n +
-                #x1n #x2 #x3n #x4n #x5 +
+                #x1n #x2n #x3n #x4n #x5 +
                 #x1 #x2n #x3n #x4n #x5 +
                 #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2n #x3 #x4n #x5n +
-                #x1 #x2 #x3n #x4n #x5n
+                #x1 #x2n #x3 #x4n #x5n = Sigma(3, 5, 6, 9, 17, 18, 20, 24)
             $,
         ) \
 
@@ -393,7 +489,7 @@
             "b",
             $
                 (#x1 + #x2n + #x3 + #x4n + #x5) dot
-                (#x1 + #x2n + #x3n + #x4 + #x5)
+                (#x1 + #x2n + #x3n + #x4 + #x5) = Pi (5, 6)
             $,
         ) \ \
 
@@ -401,6 +497,7 @@
         #fcd(
             "c",
             $
+                #x1 #x2 #x3n #x4n #x5n +
                 #x1n #x2n #x3n #x4 #x5 +
                 #x1n #x2n #x3 #x4 #x5n +
                 #x1n #x2 #x3n #x4n #x5 +
@@ -408,15 +505,14 @@
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4n #x5 +
                 #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2n #x3 #x4n #x5n +
-                #x1 #x2 #x3n #x4n #x5n
+                #x1 #x2n #x3 #x4n #x5n = Sigma (3, 6, 9, 10, 12, 17, 18, 20, 24)
             $,
         ) \
 
         #fcc(
             "c",
             $
-                (#x1 + #x2 + #x3n + #x4 + #x5n)
+                (#x1 + #x2 + #x3n + #x4 + #x5n) = Pi (2)
             $,
         ) \ \
 
@@ -424,13 +520,14 @@
         #fcd(
             "d",
             $
+                #x1 #x2 #x3n #x4n #x5n +
                 #x1n #x2n #x3 #x4n #x5 +
                 #x1n #x2n #x3 #x4 #x5n +
                 #x1n #x2 #x3n #x4 #x5n +
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2n #x3 #x4n #x5n +
-                #x1 #x2 #x3n #x4n #x5n
+                #x1 #x2n #x3 #x4n #x5n
+                = Sigma(5, 6, 10, 12, 18, 14)
             $,
         ) \
 
@@ -439,18 +536,21 @@
             $
                 (#x1 + #x2 + #x3 + #x4n + #x5n) dot
                 (#x1 + #x2n + #x3 + #x4 + #x5n) dot
-                (#x1n + #x2 + #x3 + #x4 + #x5n)
+                (#x1n + #x2 + #x3 + #x4 + #x5n) = Pi(1, 4, 7)
             $,
-        ) \ \
+        )
+
+        #pagebreak();
 
         // e
         #fcd(
             "e",
             $
+                #x1 #x2 #x3n #x4n #x5n +
                 #x1n #x2n #x3 #x4n #x5 +
                 #x1n #x2 #x3 #x4n #x5n +
-                #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2 #x3n #x4n #x5n
+                #x1 #x2n #x3n #x4 #x5n
+                = Sigma(0, 2, 6, 8)
             $,
         ) \
 
@@ -462,7 +562,7 @@
                 (#x1 + #x2n + #x3 + #x4n + #x5n) dot
                 (#x1 + #x2n + #x3 + #x4n + #x5) dot
                 (#x1n + #x2 + #x3 + #x4 + #x5n) dot
-                (#x1n + #x2 + #x3n + #x4 + #x5)
+                (#x1n + #x2 + #x3n + #x4 + #x5) = Pi(1, 3, 4, 5, 7, 9)
             $,
         ) \ \
 
@@ -470,14 +570,12 @@
         #fcd(
             "f",
             $
-                #x1n #x2n #x3 #x4 #x5n +
+                #x1n #x2 #x3n #x4n #x5n +
                 #x1n #x2 #x3n #x4n #x5 +
                 #x1n #x2 #x3n #x4 #x5n +
                 #x1n #x2 #x3 #x4n #x5n +
-                #x1 #x2n #x3n #x4n #x5 +
-                #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2n #x3 #x4n #x5n +
-                #x1 #x2 #x3n #x4n #x5n
+                #x1 #x2n #x3 #x4n #x5n
+                = Sigma(0, 4, 5, 6, 8, 9)
             $,
         ) \
 
@@ -485,7 +583,9 @@
             "f",
             $
                 (#x1 + #x2 + #x3 + #x4n + #x5n) dot
-                (#x1 + #x2 + #x3n + #x4 + #x5n)
+                (#x1 + #x2 + #x3n + #x4 + #x5n) dot
+                (#x1 + #x2 + #x3n + #x4n + #x5) dot
+                (#x1n + #x2 + #x3 + #x4 + #x5n) = Pi(1, 2, 3, 7)
             $,
         ) \ \
 
@@ -499,8 +599,7 @@
                 #x1n #x2 #x3n #x4 #x5n +
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2n #x3 #x4n #x5n +
-                #x1 #x2 #x3n #x4n #x5n
+                #x1 #x2n #x3 #x4n #x5n = Sigma(2, 3, 4, 5, 6, 8, 9)
             $,
         ) \
 
@@ -508,7 +607,7 @@
             "g",
             $
                 (#x1 + #x2 + #x3 + #x4n + #x5n) dot
-                (#x1n + #x2 + #x3 + #x4 + #x5n)
+                (#x1n + #x2 + #x3 + #x4 + #x5n) = Pi(1, 7)
             $,
         )
     ]
@@ -519,7 +618,7 @@
 #v(1em)
 
 #text[
-    Mai departe, determinam tabelele Karnaugh pentru fiecare segment.
+    Asa cum am mentionat Mai departe, determinam tabelele Karnaugh pentru fiecare segment.
 ]
 
 #v(1em)
@@ -1507,7 +1606,7 @@
         "a",
         $
             (#x1 + #x3n + #x4 + #x5) dot
-            (#x2 + #x3 + #x4 + #x5n)
+            (#x2 + #x3 + #x4 + #x5n) = overline(overline(f)^"FMC"_a (#x2 + #x4 + #x3 #x5 + #x3n #x5n ))
         $,
     ) \ \ \ \
 
@@ -1517,15 +1616,15 @@
             // #x2 + #x4 #x5 + #x4n #x5n + #x2n #x3n
             #x3n + #x4n #x5n + #x4 #x5
         $,
-    ) \
+    )
 
     #fmc(
         "b",
         $
             (#x1 + #x3n + #x4 + #x5n) dot
-            (#x1 + #x2n + #x3 + #x4n + #x5)
+            (#x1 + #x2n + #x3 + #x4n + #x5) = overline(overline(f)^"FMC"_b (#x3n + #x4n #x5n + #x4 #x5))
         $,
-    ) \ \
+    )
 
     #fmd(
         "c",
@@ -1533,14 +1632,14 @@
             // #x4n + #x5 + #x1n #x3 #x4
             #x3 + #x5 + #x4n
         $,
-    ) \
+    )
 
     #fmc(
         "c",
         $
-            #x2 + #x3 + #x4n + #x5
+            #x2 + #x3 + #x4n + #x5 = overline(overline(f)^"FMC"_c (#x3 + #x5 + #x4n))
         $,
-    ) \ \
+    )
 
 
     #fmd(
@@ -1549,16 +1648,16 @@
             // #x2 + #x4 #x5n + #x2n #x3n #x4 + #x2n #x3n #x5n
             #x3n #x5n + #x3 #x4n #x5 + #x2 + #x3n #x4 + #x4 #x5n
         $,
-    ) \
+    )
 
     #fmc(
         "d",
         $
             (#x1 + #x3n + #x4 + #x5) dot
             (#x2 + #x3 + #x4 + #x5n) dot
-            (#x1 + #x3n + #x4n + #x5n)
+            (#x1 + #x3n + #x4n + #x5n) = overline(overline(f)^"FMC"_c (#x3n #x5n + #x3 #x4n #x5 + #x2 + #x3n #x4 + #x4 #x5n))
         $,
-    ) \ \
+    )
 
 
     #fmd(
@@ -1567,15 +1666,15 @@
             // #x2 #x4n #x5n + #x4 #x5n + #x2n #x3n #x5n
             #x3n #x5n + #x4 #x5n
         $,
-    ) \
+    )
 
     #fmc(
         "e",
         $
             #x5n dot
-            (#x1 + #x3n + #x4)
+            (#x1 + #x3n + #x4) = overline(overline(f)^"FMC"_c (#x3n #x5n + #x4 #x5n))
         $,
-    ) \ \
+    )
 
 
     #fmd(
@@ -1584,16 +1683,16 @@
             // #x2 + #x4n #x5n + #x1n #x3 #x4n + #x4n #x5n
             #x3 #x4n + #x2 + #x4n #x5n + #x3 #x5n
         $,
-    ) \
+    )
 
     #fmc(
         "f",
         $
             (#x4n + #x5n) dot
             (#x2 + #x3 + #x5n) dot
-            (#x2 + #x3 + #x4n)
+            (#x2 + #x3 + #x4n) = overline(overline(f)^"FMC"_c (#x3 #x4n + #x2 + #x4n #x5n + #x3 #x5n))
         $,
-    ) \ \
+    )
 
 
 
@@ -1603,29 +1702,25 @@
             // #x2 + #x1n #x3 #x4n + #x4 #x5n + #x2n #x3n #x4
             #x2 + #x4 #x5n + #x3n #x4 + #x3 #x4n
         $,
-    ) \
+    )
 
     #fmc(
         "g",
         $
             (#x2 + #x3 + #x4) dot
-            (#x1 + #x3n + #x4n + #x5n)
+            (#x1 + #x3n + #x4n + #x5n) = overline(overline(f)^"FMC"_c (#x2 + #x4 #x5n + #x3n #x4 + #x3 #x4n))
         $,
-    ) \ \
-
+    )
 ]
 
 
-#text[
-    #align(left)[
-        ==== Metoda Quine-McCluskey pentru $F_c$ si $F_d$
-    ]
+#align(left)[
+    ==== Metoda Quine-McCluskey pentru $F_c$ si $F_d$
 ]
 
-#text[
-    Mai departe realizam metoda Quine-McCluskey. In prima faza consideram combinatiile indiferente a fiind combinatii
-    adevarate.
-]
+În etapa următoare, aplicăm algoritmul de minimizare Quine-McCluskey. Pentru maximizarea gradulului de simplificare al
+ecuațiilor, stările indiferente (combinațiile nevalide) sunt considerate inițial cu stările adevarate, astefel extindem
+posibilitățile de grupare.
 
 
 #text[
@@ -1654,13 +1749,16 @@
         ) \
     ]
 
-    Alternativ, este descrisa de:
+    Alternativ, forma canonică este descrisă de mulțimea mintermenilor:
 
     $
         F_c^"FCD" = Sigma(0, 1, 3, 4, 5, 6, 7, 8, 9)
     $
 
-    Pentru realizarea metodei cerute, examinam mintermenii cu diferente de un bit in prima faza, ulterior de 2 etc.
+    Procesul de minimizare se realizează iterativ. Inițial, mintermenii sunt grupați în funcție de ponderea lor (numărul
+    de biți cu valoarea 1). Ulterior, se evaluează comparativ termenii din grupe adiacente, combinându-se strict acele
+    perechi care diferă printr-o singură variabilă (distanță Hamming 1), algoritmul continuând până la identificarea
+    tuturor implicanților primi.
 
 ]
 
@@ -2652,10 +2750,127 @@
 
 
 
+#align(left)[
+    === Implementarea functiilor logice
+]
 
 
+#align(left)[
+    ==== Implementarea independenta a functiilor logice
+]
+
+#rect(
+    fill: rgb("f0f0f0"),
+    inset: 12pt,
+    radius: 4pt,
+    width: 100%,
+)[
+    #text(weight: "bold")[`Cerinta Rezolvata in aceasta Sectiune:`]
+    Să se implementeze fiecare funcție logică, independent, numai cu porți logice ŞI-NU (se vor utiliza circuite
+    integrate realizate în tehnologia TTL).
+]
+
+Implementarea functiilor logice constituie un prim pas in cadrul procesului de proiectare de a construi si implementa
+fizic sistemul. In acest scop am utilizat pachetul de programe OrCAD pentru proiectarea lor. Pentru a implementa
+functiile in parte cu porti Si-Nu in tehnologia TTL am recurs la dubla negare a fiecarei functii. In cazul utilizarii
+tehnologiei CMOS, am recurs la rescrierea termenilor de tipul $a_1 dot a_2 dot ... dot a_n$ in forma
+$overline(a_1 + a_2 + ... + a_n)$, etapa ce a precedat dubla negare a formei rezultate. De observat este ca in cazul
+utilizarii portilor SAU-NU in cadrul tehnologiei CMOS, este nevoie de negarea la final a functiei.
+
+#pagebreak()
+
+#align(left)[
+    ==== Implementarea ansamblului functiilor logice cu porti Si-Nu
+]
+#v(after_subtitle)
 
 
+#rect(
+    fill: rgb("f0f0f0"),
+    inset: 12pt,
+    radius: 4pt,
+    width: 100%,
+)[
+    #text(weight: "bold")[`Cerinta Rezolvata in aceasta Sectiune:`]
+    Să se implementeze ansamblul funcțiilor logice numai cu porți logice ŞI-NU (se vor utiliza circuite integrate
+    realizate în tehnologia TTL).
+]
+
+#figure(
+    image("fa.png"),
+    caption: [Functia a],
+)
+
+
+#figure(
+    image("fb.png"),
+    caption: [Functia b],
+)
+
+
+#figure(
+    image("fc.png"),
+    caption: [Functia c],
+)
+
+#figure(
+    image("fd.png"),
+    caption: [Functia d],
+)
+
+#figure(
+    image("fe.png"),
+    caption: [Functia e],
+)
+
+#figure(
+    image("ff.png"),
+    caption: [Functia f],
+)
+
+#figure(
+    image("fg.png"),
+    caption: [Functia g],
+)
+
+#pagebreak()
+
+
+#align(left)[
+    ==== Implementarea ansamblului functiilor logice cu porti Si-Nu, Sau-Nu.
+]
+
+Implementarea functiilor individuale nu este totusi condusiva la realizarea concreta si fizic eficienta a
+decodificatorului. Asadar, este necesara implementarea in ansamblu a functiilor. Pentru aceasta, se ia in cosiderare
+reutilizarea portilor ce au rezultat in mintermeni ce se repeta in implementarile functiilor ulterioare.
+
+
+#figure(
+    image("ansamblu.png"),
+    caption: [Implementarea in prima varianta a ansamblului functiilor],
+)
+
+#pagebreak()
+
+#rect(
+    fill: rgb("f0f0f0"),
+    inset: 12pt,
+    radius: 4pt,
+    width: 100%,
+)[
+    #text(weight: "bold")[`Cerinta Rezolvata in aceasta Sectiune:`]
+    Să se implementeze ansamblul funcțiilor logice în următoarea variantă: primele patru funcții logice de ieşire cu
+    porți logice ȘI-NU (circuite integrate TTL), iar următoarele trei cu porți logice SAU-NU (circuite integrate CMOS).
+]
+
+In a doua varianta utilizam porti SAU-NU in tehnologia CMOS pentru ultimele 3 functii, ia primele 4 functii raman
+implementate cu porti SI-NU in tehnologia TTL conform implementarilor din sectiunea anterioara.
+
+
+#figure(
+    image("ansamblu2.png"),
+    caption: [Implementarea in a doua varianta a ansamblului functiilor],
+)
 
 
 
