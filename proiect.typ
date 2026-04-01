@@ -74,36 +74,36 @@
 
 
 
-// #grid(
-//     columns: (1fr, 1fr),
-//     align: (left + horizon, right + horizon),
-//     gutter: 0pt,
-//     image("./image2.png", height: 2.2cm),
-//     [
-//         #text(size: 10.5pt, weight: "semibold")[Universitatea _Transilvania_ din Brașov] \
-//         #v(-0.5em)
-//         #text(size: 10.5pt)[Facultatea de Inginerie Electrică și Știința Calculatoarelor] \
-//         #v(-0.5em)
-//         #text(size: 10.5pt)[Departamentul Automatică și Tehnologia Informației]
-//     ],
-// )
-
-
 #grid(
-    columns: (2.4cm, 1fr, 2.4cm),
-    align: (left + horizon, center + horizon, right + horizon),
+    columns: (1fr, 1fr),
+    align: (left + horizon, right + horizon),
     gutter: 0pt,
-    image("./image1.png", height: 2.2cm),
+    image("./image2.png", height: 2.2cm),
     [
         #text(size: 10.5pt, weight: "semibold")[Universitatea _Transilvania_ din Brașov] \
-        #v(-0.5pt)
+        #v(-0.5em)
         #text(size: 10.5pt)[Facultatea de Inginerie Electrică și Știința Calculatoarelor] \
-        #v(-0.5pt)
+        #v(-0.5em)
         #text(size: 10.5pt)[Departamentul Automatică și Tehnologia Informației]
     ],
-    image("./image2.png", height: 2.2cm),
 )
-//
+
+
+// #grid(
+//     columns: (2.4cm, 1fr, 2.4cm),
+//     align: (left + horizon, center + horizon, right + horizon),
+//     gutter: 0pt,
+//     image("./image1.png", height: 2.2cm),
+//     [
+//         #text(size: 10.5pt, weight: "semibold")[Universitatea _Transilvania_ din Brașov] \
+//         #v(-0.5pt)
+//         #text(size: 10.5pt)[Facultatea de Inginerie Electrică și Știința Calculatoarelor] \
+//         #v(-0.5pt)
+//         #text(size: 10.5pt)[Departamentul Automatică și Tehnologia Informației]
+//     ],
+//     image("./image2.png", height: 2.2cm),
+// )
+
 #v(5pt)
 #line(length: 100%, stroke: 0.5pt + rgb("#333333"))
 
@@ -193,11 +193,11 @@ unui numar zecimal (de la 0 la 9) este reprezentata individual printr-un grup un
 de n biti. Caracterul de circuit logic combinational consta dependenta completa a valorilor de iesire fata de valorile
 de intrare. Matematic, decodificatorul, fiind un circuit combinational si totadata un sistem, are un comportament ce
 poate fi descris de o functie de transfer, sau multiple functii de transfer, ce in acest caz se numesc functii de
-comutare.
+comutare @moldo.
 
 Un decodificator se supune analizei intr-un mod identic din punct de vedere conceptual unui circuit combinational. In
 esenta, un circuit combinational cu intrarile $#x1, #x2, ..., x_n$ si iesirle $z_1, z_2, ..., z_m$ este modelat de
-sistemul de functii de mai jos, numite si functiile proprii ale circuitului.
+sistemul de functii de mai jos, numite si functiile proprii ale circuitului @moldo.
 
 #grid(
     columns: (1fr, 1fr),
@@ -235,10 +235,10 @@ sistemul de functii de mai jos, numite si functiile proprii ale circuitului.
     ],
 )
 
-Codul binar de tip "m din n" este utilizat in principal pentru proprietățile sale de detecție a erorilor. Regula de bază
-a acestui cod impune ca, pentru orice cuvânt de cod valid, exact doi biți să se afle în starea logică 1, iar ceilalți
-trei biți să se afle în starea logică 0. Într-un sistem de transmisie, orice alterare a unui singur bit va distruge
-această proporție strictă, generând o stare invalidă care poate fi ușor detectată de circuit.
+Codul binar de tip "m din n" este utilizat in principal pentru proprietățile sale de detecție a erorilor @wilkinson2002.
+Regula de bază a acestui cod impune ca, pentru orice cuvânt de cod valid, exact doi biți să se afle în starea logică 1,
+iar ceilalți trei biți să se afle în starea logică 0. Într-un sistem de transmisie, orice alterare a unui singur bit va
+distruge această proporție strictă, generând o stare invalidă care poate fi ușor detectată de circuit. @wilkinson2002
 
 // Tabelul de adevar al functiilor logice asociate decodificatorului reies din realizarea corespunderii codului pentru
 // cifra zecimala corespunzatoare si configuratia segmentelor de pe tubul de afisare, unde 1 inseamna ca LED-ul este
@@ -250,7 +250,7 @@ Din punct de vedere pur conceptual, codul 2 din 5 este, în esența sa, un cod n
 regulă matematică obligatorie care să asocieze fiecărei poziții a bitului o anumită valoare (pondere) fixă, astfel încât
 valoarea zecimală să fie obținută simplu, prin însumare, cum se întâmplă în cazul codului BCD natural (8421). Prin
 urmare, la nivelul sintezei decodificatorului, alocarea celor 10 combinații valide de biți pentru cifrele zecimale (de
-la 0 la 9) s-ar fi putut realiza într-un mod complet arbitrar.
+la 0 la 9) s-ar fi putut realiza într-un mod complet arbitrar @stefan2000.
 
 #grid(
     columns: (1fr, 1fr),
@@ -307,12 +307,12 @@ reprezentarea într-un cod pseudoponderat.
 
 
 Odată stabilită această corespondență la nivelul variabilelor de intrare, funcția decodificatorului este de a prelua
-cuvântul de 5 biți și de a excita corespunzător ieșirile către tubul cu 7 segmente ($a, b, c, d, e, f, g$). Un aspect
-crucial în proiectarea acestui circuit este gestionarea redundanței. Cele 5 variabile de intrare generează un spațiu de
-32 de combinații posibile. Dintre acestea, doar cele 10 listate mai sus sunt valide. Celelalte 22 de combinații
-reprezintă stări invalide. În sinteza ecuațiilor logice, aceste stări pot fi tratate ca stări indiferente ("don't care")
-pentru a minimiza drastic porțile logice necesare, sau pot fi direcționate intenționat către stingerea completă a
-afișajului, transformând decodificatorul într-un sistem capabil să filtreze vizual erorile de sistem.
+cuvântul de 5 biți și de a realiza corespunderea cu ieșirile către tubul de 7 segmente ($a, b, c, d, e, f, g$). Un
+aspect de retinut în proiectarea acestui circuit este gestionarea redundanței. Cele 5 variabile de intrare generează un
+spațiu de 32 de combinații posibile. Dintre acestea, doar cele 10 listate mai sus sunt valide. Celelalte 22 de
+combinații reprezintă stări invalide. În sinteza ecuațiilor logice, aceste stări pot fi tratate ca stări indiferente
+("don't care") @moldo pentru a minimiza porțile logice necesare, sau pot fi direcționate intenționat către stingerea
+completă a afișajului, transformând decodificatorul într-un sistem capabil să filtreze vizual erorile de sistem.
 
 #pagebreak();
 
@@ -340,8 +340,8 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
 #text[
     Prima parte a procesului de proiectare si analiza vizează sinteza circuitului logic combinațional asociat
     decodificatorului. Demersul analitic presupune parcurgerea mai multor pași esențiali, având ca punct de plecare
-    construirea tabelului de adevăr ce descrie comportamentul dorit al sistemului. Folosind tabela de adevar, se va
-    realiza extragerea functiilor logice in formele lor standard Forma Canonică Disjunctivă (FCD) și Forma Canonică
+    construirea tabelului de adevăr ce descrie comportamentul dorit al sistemului @moldo. Folosind tabela de adevar, s-a
+    realizat extragerea functiilor logice in formele lor standard Forma Canonică Disjunctivă (FCD) și Forma Canonică
     Conjunctivă (FCC).
 ]
 
@@ -371,14 +371,14 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
 // = BCD (7-4-2-1-0) la 7 segmente
 
 #text[
-    Instrumentul fundamental în analiza și sinteza oricărui circuit logic combinațional este tabelul de adevăr. Acesta
+    Instrumentul de pornire în analiza și sinteza circuitelor logice combinațional este tabelul de adevăr. Acesta
     reprezintă descrierea totala a funcționării sistemului, prin maparea fiecarei combinații posibile a variabilelor de
-    intrare la starea corespunzătoare a variabilelor de ieșire. Decodificatorul proiectat, are 5 intrări
-    (corespunzătoare bitului pentru fiecare pondere: 7, 4, 2, 1, 0), asadar, tabelul de adevăr va conține un număr total
-    de $2^5 = 32$ de linii. Pe fiecare linie se va regăsi configurația dorită pentru cele 7 ieșiri independente
-    (segmentele $a, b, c, d, e, f, g$). Doar 10 dintre aceste combinații de intrare reprezintă coduri valide pentru
-    cifrele zecimale. Celelalte 22 (de la 10 la 31) de combinații posibile sunt considerate ca stari indiferente si nu
-    sunt reprezentate.
+    intrare la starea corespunzătoare a variabilelor de ieșire. Decodificatorul proiectat are 5 intrări (corespunzătoare
+    bitului pentru fiecare pondere: 7, 4, 2, 1, 0), asadar, tabelul de adevăr va conține un număr total de $2^5 = 32$ de
+    linii. Fiecare linie contine configurația dorită pentru cele 7 ieșiri independente (segmentele
+    $a, b, c, d, e, f, g$). Doar 10 dintre aceste combinații de intrare reprezintă coduri valide pentru cifrele
+    zecimale. Celelalte 22 (de la 10 la 31) de combinații posibile sunt considerate ca stari indiferente si nu sunt
+    reprezentate in tabel.
 ]
 
 #let bcd_data = (
@@ -431,17 +431,17 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
     2-din-5 fără erori, asadar, else sunt tratate ca stări indiferente.
 
     Forma Canonică Disjunctivă, cunoscută în literatura de specialitate și sub denumirea de "sumă de produse" sau "sumă
-    de mintermeni", se obține analizând exclusiv acele linii din tabelul de adevăr pentru care funcția de ieșire are
-    valoarea logică 1.
+    de mintermeni" @toacse2005, se obține analizând exclusiv acele linii din tabelul de adevăr pentru care funcția de
+    ieșire are valoarea logică 1.
 
     Duala formei precedente este Forma Canonică Conjunctivă, ce este denumită și "produs de sume" sau "produs de
-    maxtermeni". Această formă se construiește concentrându-ne pe liniile din tabelul de adevăr în care funcția de
-    ieșire are valoarea logică 0.
+    maxtermeni" @toacse2005. Această formă se construiește concentrându-ne pe liniile din tabelul de adevăr în care
+    funcția de ieșire are valoarea logică 0.
 
     Deși ambele forme canonice descriu același comportament și sunt logic echivalente, ele conțin cel mai mare număr
     posibil de variabile și operații. În practică, expresiile extrase astfel din tabelul de adevăr nu sunt pe
-    implementate hardware ca atare, deoarece este ineficient, din cauza numarului mare de porți logice. Ele sunt punctul
-    teoretic de plecare obligatoriu pentru pasul următor: minimizarea funcțiilor logice.
+    implementate hardware ca atare, deoarece este ineficient, din cauza numarului mare de porți logice @wakerly2002. Ele
+    sunt punctul teoretic de plecare obligatoriu pentru pasul următor: minimizarea funcțiilor logice.
 
     #v(2.5em);
 
@@ -527,7 +527,7 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4 #x5n +
                 #x1 #x2n #x3 #x4n #x5n
-                = Sigma(5, 6, 10, 12, 18, 14)
+                = Sigma(5, 6, 10, 12, 18, 24)
             $,
         ) \
 
@@ -550,7 +550,7 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
                 #x1n #x2n #x3 #x4n #x5 +
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4 #x5n
-                = Sigma(0, 2, 6, 8)
+                = Sigma(5, 12, 18, 24)
             $,
         ) \
 
@@ -575,7 +575,7 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
                 #x1n #x2 #x3n #x4 #x5n +
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3 #x4n #x5n
-                = Sigma(0, 4, 5, 6, 8, 9)
+                = Sigma(9, 10, 12, 18, 20, 24)
             $,
         ) \
 
@@ -599,7 +599,7 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
                 #x1n #x2 #x3n #x4 #x5n +
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2n #x3 #x4n #x5n = Sigma(2, 3, 4, 5, 6, 8, 9)
+                #x1 #x2n #x3 #x4n #x5n = Sigma(5, 6, 9, 10, 12, 18, 20)
             $,
         ) \
 
@@ -666,103 +666,83 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
 #align(center)[
 
     #let a_vals = (
-        "1",
-        "0",
-        "*",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "0",
-        "1",
-        "*",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "1",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "1",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
+        "*", // 0
+        "*", // 4
+        "1", // 12
+        "*", // 8
+        "1", // 24
+        "*", // 28
+        "1", // 20
+        "*", // 16
+        "*", // 1
+        "1", // 5
+        "*", // 13
+        "0", // 9
+        "*", // 25
+        "*", // 29
+        "*", // 21
+        "1", // 17
+        "0", // 3
+        "*", // 7
+        "*", // 15
+        "*", // 11
+        "*", // 27
+        "*", // 31
+        "*", // 23
+        "*", // 19
+        "*", // 2
+        "1", // 6
+        "*", // 14
+        "1", // 10
+        "*", // 26
+        "*", // 30
+        "*", // 22
+        "1", // 18
     )
-
     ===== Segmentul a
 
     #block()[
-        #place(top + left, dx: -1.5em, dy: 2.5em, rect(
-            width: 4 * 2.5em,
-            height: 4 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-            // fill: blue.transparentize(85%),
-        ))
-        #place(top + left, dx: -6.5em, dy: 7.5em, rect(
-            width: 8 * 2.5em,
-            height: 2 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-        ))
-        #place(top + left, dx: -3.5em, dy: 5.5em, rect(
-            width: 2 * 2.5em,
-            height: 2 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-        ))
 
         // corners
         #place(top + left, dx: -6.5em, dy: 2.5em, rect(
-            width: 2.5em,
+            width: 20.5em,
             height: 2.5em,
-            stroke: (top: none, left: none, bottom: 2pt + blue, right: 2pt + blue),
+            stroke: (top: none, left: 2pt + blue, bottom: 2pt + blue, right: 2pt + blue),
         ))
 
-        #place(top + left, dx: 12em, dy: 2.5em, rect(
-            width: 2.5em,
+        #place(top + left, dx: -6.5em, dy: 10.5em, rect(
+            width: 20.5em,
             height: 2.5em,
-            stroke: (top: none, right: none, bottom: 2pt + blue, left: 2pt + blue),
+            stroke: (bottom: none, right: 2pt + blue, top: 2pt + blue, left: 2pt + blue),
         ))
 
-        #place(top + left, dx: -6.5em, dy: 10em, rect(
-            width: 2.5em,
-            height: 2.5em,
-            stroke: (bottom: none, left: none, top: 2pt + blue, right: 2pt + blue),
-        ))
-
-        #place(top + left, dx: 12em, dy: 10em, rect(
-            width: 2.5em,
-            height: 2.5em,
-            stroke: (bottom: none, right: none, top: 2pt + blue, left: 2pt + blue),
-        ))
-
-        // corners
-        #place(top + left, dx: -6.5em, dy: 5.5em, rect(
-            width: 2.5em,
-            height: 2.5em,
-            stroke: (top: 2pt + red, left: none, bottom: 2pt + red, right: 2pt + red),
-        ))
-
-        #place(top + left, dx: 12em, dy: 5.5em, rect(
-            width: 2.5em,
-            height: 2.5em,
-            stroke: (bottom: 2pt + red, right: none, top: 2pt + red, left: 2pt + red),
-        ))
-
-        #place(top + left, dx: -3.5em, dy: 2.5em, rect(
+        // not corners
+        #place(top + left, dx: -6.5em, dy: 2.5em, rect(
             width: 2 * 2.5em,
+            height: 2 * 2.5em,
+            radius: 8pt,
+            stroke: (top: 2pt + blue, bottom: 2pt + blue, right: 2pt + blue, left: none),
+        ))
+
+
+        #place(top + left, dx: 8.5em, dy: 2.5em, rect(
+            width: 2 * 2.5em,
+            height: 2 * 2.5em,
+            radius: 8pt,
+            stroke: (top: 2pt + blue, bottom: 2pt + blue, right: none, left: 2pt + blue),
+        ))
+
+
+        #place(top + left, dx: -1.5em, dy: 5.5em, rect(
+            width: 4 * 2.5em,
+            height: 2 * 2.5em,
+            radius: 8pt,
+            stroke: 2pt + red,
+        ))
+
+
+        #place(top + left, dx: -5.5em, dy: 7.5em, rect(
+            width: 8 * 2.5em,
             height: 1 * 2.5em,
             radius: 8pt,
             stroke: 2pt + red,
@@ -796,95 +776,94 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
 
 
 #align(center)[
-
     #let a_vals = (
-        "1",
-        "1",
-        "*",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "1",
-        "0",
-        "*",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "1",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "1",
-        "0",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
+        "*", // 0
+        "*", // 4
+        "0", // 12
+        "*", // 8
+        "1", // 24
+        "*", // 28
+        "1", // 20
+        "*", // 16
+        "*", // 1
+        "1", // 5
+        "*", // 13
+        "1", // 9
+        "*", // 25
+        "*", // 29
+        "*", // 21
+        "1", // 17
+        "1", // 3
+        "*", // 7
+        "*", // 15
+        "*", // 11
+        "*", // 27
+        "*", // 31
+        "*", // 23
+        "*", // 19
+        "*", // 2
+        "1", // 6
+        "*", // 14
+        "0", // 10
+        "*", // 26
+        "*", // 30
+        "*", // 22
+        "1", // 18
     )
 
     ===== Segmentul b
 
     #block()[
-        #place(top + left, dx: 1.5em, dy: 2.5em, rect(
-            width: 2 * 2.5em,
-            height: 4 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-            // fill: blue.transparentize(85%),
-        ))
-
-
-        #place(top + left, dx: -6.5em, dy: 3em, rect(
-            width: 8 * 2.5em,
-            height: 1 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-        ))
-
-        #place(top + left, dx: -6.5em, dy: 7.5em, rect(
-            width: 8 * 2.5em,
-            height: 1 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-        ))
 
         // corners
         #place(top + left, dx: -6.5em, dy: 2.5em, rect(
-            width: 2.5em,
+            width: 5.5em,
             height: 10.5em,
             stroke: (top: 2pt + blue, left: none, bottom: 2pt + blue, right: 2pt + blue),
         ))
 
-        #place(top + left, dx: 12em, dy: 2.5em, rect(
-            width: 2.5em,
+        #place(top + left, dx: 9em, dy: 2.5em, rect(
+            width: 5.5em,
             height: 10.5em,
             stroke: (bottom: 2pt + blue, right: none, top: 2pt + blue, left: 2pt + blue),
         ))
 
+
         //
-        #place(top + left, dx: -3.5em, dy: 5.5em, rect(
+        #place(top + left, dx: 1.5em, dy: 2.5em, rect(
             width: 2 * 2.5em,
-            height: 1 * 2.5em,
+            height: 2 * 2.5em,
             radius: 8pt,
-            stroke: 2pt + red,
+            stroke: 2pt + blue,
         ))
 
 
-        #place(top + left, dx: -3.5em, dy: 10.5em, rect(
+        #place(top + left, dx: -6.5em, dy: 2.9em, rect(
+            width: 2.5em,
+            height: 4.5em,
+            stroke: (top: 2pt + blue, left: none, bottom: 2pt + blue, right: 2pt + blue),
+        ))
+
+        #place(top + left, dx: 12em, dy: 3em, rect(
+            width: 2.5em,
+            height: 4.5em,
+            stroke: (bottom: 2pt + blue, right: none, top: 2pt + blue, left: 2pt + blue),
+        ))
+
+        //
+        #place(top + left, dx: -1.5em, dy: 2.5em, rect(
             width: 2 * 2.5em,
             height: 1 * 2.5em,
             radius: 8pt,
-            stroke: 2pt + red,
+            stroke: (bottom: 2pt + red, right: 2pt + red, top: none, left: 2pt + red),
+        ))
+
+
+        #place(top + left, dx: -1.5em, dy: 10.5em, rect(
+            width: 2 * 2.5em,
+            height: 1 * 2.5em,
+            radius: 8pt,
+            stroke: (bottom: none, right: 2pt + red, top: 2pt + red, left: 2pt + red),
         ))
 
 
@@ -1181,61 +1160,48 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
 #align(center)[
 
     #let a_vals = (
-        "1",
-        "0",
-        "*",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "0",
-        "0",
-        "*",
-        "0",
-        "*",
-        "*",
-        "*",
-        "*",
-        "0",
-        "0",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "1",
-        "1",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
-        "*",
+        "*", // 0
+        "*", // 4
+        "1", // 12
+        "*", // 8
+        "1", // 24
+        "*", // 28
+        "0", // 20
+        "*", // 16
+        "*", // 1
+        "1", // 5
+        "*", // 13
+        "0", // 9
+        "*", // 25
+        "*", // 29
+        "*", // 21
+        "0", // 17
+        "0", // 3
+        "*", // 7
+        "*", // 15
+        "*", // 11
+        "*", // 27
+        "*", // 31
+        "*", // 23
+        "*", // 19
+        "*", // 2
+        "0", // 6
+        "*", // 14
+        "0", // 10
+        "*", // 26
+        "*", // 30
+        "*", // 22
+        "1", // 18
     )
 
     ===== Segmentul e
 
 
     #block()[
-        #place(top + left, dx: -1.5em, dy: 2.5em, rect(
-            width: 4 * 2.5em,
-            height: 1 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-            // fill: blue.transparentize(85%),
-        ))
 
-        #place(top + left, dx: -6.5em, dy: 10em, rect(
-            width: 8 * 2.5em,
-            height: 1 * 2.5em,
-            radius: 8pt,
-            stroke: 2pt + blue,
-        ))
 
         // corners
-        #place(top + left, dx: -6.5em, dy: 2.5em, rect(
+        #place(top + left, dx: 3.5em, dy: 2.5em, rect(
             width: 2.5em,
             height: 2.5em,
             stroke: (top: none, left: none, bottom: 2pt + blue, right: 2pt + blue),
@@ -1247,7 +1213,7 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
             stroke: (top: none, right: none, bottom: 2pt + blue, left: 2pt + blue),
         ))
 
-        #place(top + left, dx: -7em, dy: 10.5em, rect(
+        #place(top + left, dx: 3.5em, dy: 10.5em, rect(
             width: 2.5em,
             height: 2.5em,
             stroke: (bottom: none, left: none, top: 2pt + blue, right: 2pt + blue),
@@ -1265,12 +1231,29 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
             width: 2 * 2.5em,
             height: 2 * 2.5em,
             radius: 8pt,
+            stroke: 2pt + blue,
+        ))
+
+
+        // reds
+        #place(top + left, dx: 1.5em, dy: 5.3em, rect(
+            width: 2 * 2.5em,
+            height: 2 * 2.5em,
+            radius: 8pt,
             stroke: 2pt + red,
         ))
 
 
-        #place(top + left, dx: -6.5em, dy: 5.5em, rect(
-            width: 8 * 2.5em,
+        #place(top + left, dx: 6.5em, dy: 2.5em, rect(
+            width: 2 * 2.5em,
+            height: 4 * 2.5em,
+            radius: 8pt,
+            stroke: 2pt + red,
+        ))
+
+
+        #place(top + left, dx: -6.5em, dy: 7.5em, rect(
+            width: 4 * 2.5em,
             height: 2 * 2.5em,
             radius: 8pt,
             stroke: 2pt + red,
@@ -1336,7 +1319,7 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
         "*",
         "*",
         "0",
-        "1",
+        "*",
         "*",
         "*",
         "*",
@@ -1598,7 +1581,7 @@ afișajului, transformând decodificatorul într-un sistem capabil să filtreze 
     #fmd(
         "a",
         $
-            #x2 + #x4 + #x3 #x5 + #x3n #x5n
+            #x2n #x4n + #x5n
         $,
     ) \
 
@@ -2777,6 +2760,21 @@ tehnologiei CMOS, am recurs la rescrierea termenilor de tipul $a_1 dot a_2 dot .
 $overline(a_1 + a_2 + ... + a_n)$, etapa ce a precedat dubla negare a formei rezultate. De observat este ca in cazul
 utilizarii portilor SAU-NU in cadrul tehnologiei CMOS, este nevoie de negarea la final a functiei.
 
+Mai jos este un exemplu generalizat pentru ambele implementari. In ambele cazuri s-a pornit de la forma minima
+disjunctiva a functiilor.
+
+$
+    f^"FCD" = a_0 + a_1 + ... + a_n + a_11 dot a_12 dot ... a_"1n"_1 + a_21 dot a_22 dot ... dot a_"2n"_2 + ... + a_"m1" dot a_"m2" dot ... dot a_"mn"_k
+    arrow.r.double \ arrow.r.double overline(overline(f^"FCD")) = overline(
+        overline(a)_0 dot overline(a)_1 dot ... dot overline(a)_n dot
+        (overline(a)_11 + overline(a)_12 + ... overline(a)_"1n"_1) dot (overline(a)_21 + overline(a)_22 + ... overline(a)_"2n"_k) dot ... dot (overline(a)_"m1" + overline(a)_"m2" + ... overline(a)_"mn"_k)
+    ) arrow.r.double \
+    f^"FCD" = overline(
+        overline(a)_0 dot overline(a)_1 dot ... dot overline(a)_n dot
+        overline((a_11 dot a_12 dot ... dot a_"1n"_1)) dot overline((a_21 dot a_22 dot ... dot a_"2n"_2)) dot overline((a_"m1" dot a_"m2" dot ... dot a_"mn"_k))
+    )
+$
+
 #pagebreak()
 
 #align(left)[
@@ -2873,4 +2871,4 @@ implementate cu porti SI-NU in tehnologia TTL conform implementarilor din sectiu
 )
 
 
-
+#bibliography("bilbiography.yml")
