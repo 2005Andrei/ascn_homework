@@ -54,7 +54,7 @@
         }
     },
     footer: context {
-        if counter(page).get().first() > 3 {
+        if counter(page).get().first() > 1 {
             align(center, counter(page).display())
         }
     },
@@ -273,7 +273,7 @@ la 0 la 9) s-ar fi putut realiza într-un mod complet arbitrar @stefan2000.
             table(
                 columns: 6,
                 align: center + horizon,
-                stroke: 0.5pt,
+                stroke: 0.5pt + luma(150),
                 table.header(
                     table.cell()[Cifra],
                     table.cell[#x1],
@@ -399,7 +399,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         table(
             columns: 13,
             align: center + horizon,
-            stroke: 0.5pt,
+            stroke: 0.5pt + luma(150),
             table.header(
                 table.cell(rowspan: 2)[*Cifra*],
                 table.cell(colspan: 5)[*BCD (7-4-2-1-0)*],
@@ -505,7 +505,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4n #x5 +
                 #x1 #x2n #x3n #x4 #x5n +
-                #x1 #x2n #x3 #x4n #x5n = Sigma (3, 6, 9, 10, 12, 17, 18, 20, 24)
+                #x1 #x2n #x3 #x4n #x5n = Sigma (0 1, 3, 4, 5, 6, 7, 8, 9)
             $,
         ) \
 
@@ -527,7 +527,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 #x1n #x2 #x3 #x4n #x5n +
                 #x1 #x2n #x3n #x4 #x5n +
                 #x1 #x2n #x3 #x4n #x5n
-                = Sigma(5, 6, 10, 12, 18, 24)
+                = Sigma(0, 2, 3, 5, 6, 8, 9)
             $,
         ) \
 
@@ -753,6 +753,8 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         columns: (auto, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em),
         rows: (auto, 2.5em, 2.5em, 2.5em, 2.5em),
         align: center + horizon,
+        stroke: 0.5pt + luma(150),
+
         table.header([*#x4#x5 \\ #x1#x2#x3*], [*000*], [*001*], [*011*], [*010*], [*110*], [*111*], [*101*], [*100*]),
 
         ..for i in range(4) {
@@ -873,6 +875,8 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         columns: (auto, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em),
         rows: (auto, 2.5em, 2.5em, 2.5em, 2.5em),
         align: center + horizon,
+        stroke: 0.5pt + luma(150),
+
         table.header([*#x4#x5 \\ #x1#x2#x3*], [*000*], [*001*], [*011*], [*010*], [*110*], [*111*], [*101*], [*100*]),
 
         ..for i in range(4) {
@@ -980,6 +984,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         columns: (auto, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em),
         rows: (auto, 2.5em, 2.5em, 2.5em, 2.5em),
         align: center + horizon,
+        stroke: 0.5pt + luma(150),
         table.header([*#x4#x5 \\ #x1#x2#x3*], [*000*], [*001*], [*011*], [*010*], [*110*], [*111*], [*101*], [*100*]),
 
         ..for i in range(4) {
@@ -1135,6 +1140,8 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         columns: (auto, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em),
         rows: (auto, 2.5em, 2.5em, 2.5em, 2.5em),
         align: center + horizon,
+
+        stroke: 0.5pt + luma(150),
         table.header([*#x4#x5 \\ #x1#x2#x3*], [*000*], [*001*], [*011*], [*010*], [*110*], [*111*], [*101*], [*100*]),
 
         ..for i in range(4) {
@@ -1266,6 +1273,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         columns: (auto, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em),
         rows: (auto, 2.5em, 2.5em, 2.5em, 2.5em),
         align: center + horizon,
+        stroke: 0.5pt + luma(150),
         table.header([*#x4#x5 \\ #x1#x2#x3*], [*000*], [*001*], [*011*], [*010*], [*110*], [*111*], [*101*], [*100*]),
 
         ..for i in range(4) {
@@ -1393,6 +1401,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         columns: (auto, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em),
         rows: (auto, 2.5em, 2.5em, 2.5em, 2.5em),
         align: center + horizon,
+        stroke: 0.5pt + luma(150),
         table.header([*#x4#x5 \\ #x1#x2#x3*], [*000*], [*001*], [*011*], [*010*], [*110*], [*111*], [*101*], [*100*]),
 
         ..for i in range(4) {
@@ -1519,6 +1528,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         columns: (auto, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em, 2.5em),
         rows: (auto, 2.5em, 2.5em, 2.5em, 2.5em),
         align: center + horizon,
+        stroke: 0.5pt + luma(150),
         table.header([*#x4#x5 \\ #x1#x2#x3*], [*000*], [*001*], [*011*], [*010*], [*110*], [*111*], [*101*], [*100*]),
 
         ..for i in range(4) {
@@ -1588,8 +1598,9 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
     #fmc(
         "a",
         $
-            (#x1 + #x3n + #x4 + #x5) dot
-            (#x2 + #x3 + #x4 + #x5n) = overline(overline(f)^"FMC"_a (#x2 + #x4 + #x3 #x5 + #x3n #x5n ))
+            (#x5n + #x2n) dot
+            (#x4n + #x5n)
+            = overline(overline(f)^"FMC"_a (#x2n #x4n + #x5n))
         $,
     ) \ \ \ \
 
@@ -1604,8 +1615,8 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
     #fmc(
         "b",
         $
-            (#x1 + #x3n + #x4 + #x5n) dot
-            (#x1 + #x2n + #x3 + #x4n + #x5) = overline(overline(f)^"FMC"_b (#x3n + #x4n #x5n + #x4 #x5))
+            (#x3n + #x4n + #x5) dot
+            (#x3n + #x4 + #x5n) = overline(overline(f)^"FMD"_b (#x3n + #x4n #x5n + #x4 #x5))
         $,
     )
 
@@ -1620,7 +1631,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
     #fmc(
         "c",
         $
-            #x2 + #x3 + #x4n + #x5 = overline(overline(f)^"FMC"_c (#x3 + #x5 + #x4n))
+            #x3 + #x4n + #x5 = overline(overline(f)^"FMC"_c (#x3 + #x5 + #x4n))
         $,
     )
 
@@ -1638,7 +1649,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         $
             (#x1 + #x3n + #x4 + #x5) dot
             (#x2 + #x3 + #x4 + #x5n) dot
-            (#x1 + #x3n + #x4n + #x5n) = overline(overline(f)^"FMC"_c (#x3n #x5n + #x3 #x4n #x5 + #x2 + #x3n #x4 + #x4 #x5n))
+            (#x1 + #x3n + #x4n + #x5n) = overline(overline(f)^"FMC"_d (#x3n #x5n + #x3 #x4n #x5 + #x2 + #x3n #x4 + #x4 #x5n))
         $,
     )
 
@@ -1655,7 +1666,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         "e",
         $
             #x5n dot
-            (#x1 + #x3n + #x4) = overline(overline(f)^"FMC"_c (#x3n #x5n + #x4 #x5n))
+            (#x3n + #x4) = overline(overline(f)^"FMC"_e (#x3n #x5n + #x4 #x5n))
         $,
     )
 
@@ -1664,16 +1675,16 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         "f",
         $
             // #x2 + #x4n #x5n + #x1n #x3 #x4n + #x4n #x5n
-            #x3 #x4n + #x2 + #x4n #x5n + #x3 #x5n
+            #x2 + #x4n #x5n + #x3 #x4n
         $,
     )
 
     #fmc(
         "f",
         $
-            (#x4n + #x5n) dot
+            (#x2 + #x4n + #x5n) dot
             (#x2 + #x3 + #x5n) dot
-            (#x2 + #x3 + #x4n) = overline(overline(f)^"FMC"_c (#x3 #x4n + #x2 + #x4n #x5n + #x3 #x5n))
+            (#x2 + #x3 + #x4n) = overline(overline(f)^"FMC"_f (#x3 #x4n + #x2 + #x4n #x5n + #x3 #x5n))
         $,
     )
 
@@ -1691,7 +1702,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         "g",
         $
             (#x2 + #x3 + #x4) dot
-            (#x1 + #x3n + #x4n + #x5n) = overline(overline(f)^"FMC"_c (#x2 + #x4 #x5n + #x3n #x4 + #x3 #x4n))
+            (#x1 + #x3n + #x4n + #x5n) = overline(overline(f)^"FMC"_g (#x2 + #x4 #x5n + #x3n #x4 + #x3 #x4n))
         $,
     )
 ]
@@ -2778,7 +2789,7 @@ $
 #pagebreak()
 
 #align(left)[
-    ==== Implementarea ansamblului functiilor logice cu porti Si-Nu
+    ==== Implementarea functiilor logice cu porti Si-Nu
 ]
 #v(after_subtitle)
 
@@ -2794,8 +2805,20 @@ $
     realizate în tehnologia TTL).
 ]
 
+
+Prima abordare a presupus implementarea fiecăreia dintre cele șapte funcții de ieșire ($a, b, c, d, e, f, g$) ca
+entități logice separate, utilizând exclusiv porți logice ȘI-NU (NAND). Alegerea acestui tip de poartă este fundamentată
+pe caracterul său de operator universal, orice funcție booleană putând fi sintetizată folosind doar acest tip de
+resursă.
+
+Din punct de vedere matematic, pentru a trece de la forma minimă disjunctivă (FMD) la o structură bazată doar pe porți
+ȘI-NU, am recurs la principiul dublei negații aplicat asupra întregii expresii, urmat de utilizarea teoremelor lui De
+Morgan. Astfel, o sumă de produse (structură ȘI-SAU) este transformată într-o structură de tip ȘI-NU/ȘI-NU, mult mai
+eficientă în tehnologia TTL (Transistor-Transistor Logic). Fiecare segment a fost tratat individual, fără a căuta
+optimizări între funcții, asigurând o claritate maximă a fluxului de semnal pentru fiecare ieșire.
+
 #figure(
-    image("fa.png"),
+    image("fa_bun.png"),
     caption: [Functia a],
 )
 
@@ -2835,12 +2858,15 @@ $
 
 
 #align(left)[
-    ==== Implementarea ansamblului functiilor logice cu porti Si-Nu, Sau-Nu.
+    ==== Implementarea ansamblului functiilor logice in tehnologie TTL
 ]
 
 Implementarea functiilor individuale nu este totusi condusiva la realizarea concreta si fizic eficienta a
 decodificatorului. Asadar, este necesara implementarea in ansamblu a functiilor. Pentru aceasta, se ia in cosiderare
-reutilizarea portilor ce au rezultat in mintermeni ce se repeta in implementarile functiilor ulterioare.
+reutilizarea portilor ce au rezultat in mintermeni ce se repeta in implementarile functiilor ulterioare. Spre deosebire
+de abordarea precedentă, implementarea ansamblului presupune o viziune sistemică asupra decodificatorului. În acest caz,
+obiectivul principal a fost optimizarea hardware, vizând reducerea numărului total de capsule de circuite integrate
+necesare.
 
 
 #figure(
@@ -2849,6 +2875,8 @@ reutilizarea portilor ce au rezultat in mintermeni ce se repeta in implementaril
 )
 
 #pagebreak()
+
+==== Implementarea ansamblului functiilor in tehnologie TTL, CMOS
 
 #rect(
     fill: rgb("f0f0f0"),
@@ -2861,8 +2889,24 @@ reutilizarea portilor ce au rezultat in mintermeni ce se repeta in implementaril
     porți logice ȘI-NU (circuite integrate TTL), iar următoarele trei cu porți logice SAU-NU (circuite integrate CMOS).
 ]
 
-In a doua varianta utilizam porti SAU-NU in tehnologia CMOS pentru ultimele 3 functii, ia primele 4 functii raman
-implementate cu porti SI-NU in tehnologia TTL conform implementarilor din sectiunea anterioara.
+
+In a doua varianta de proiectare a explorat interoperabilitatea dintre diferite familii logice și tehnologii de
+fabricație.
+
+- *Primele patru funcții* ($a, b, c, d$): Au fost implementate conform metodei anterioare, utilizând porți ȘI-NU în
+    tehnologie TTL.
+- *Următoarele trei funcții* ($e, f, g$): Au fost implementate utilizând porți SAU-NU (NOR) în tehnologie CMOS
+    (Complementary Metal-Oxide-Semiconductor).
+
+Pentru a adapta funcțiile la poarta universală SAU-NU, am recurs la transformarea termenilor de tip produs logic
+($a_1 dot a_2 dot dots dot a_n$) în forme de tip sumă negată ($overline(a_1 + a_2 + dots + a_n)$). Această etapă de
+conversie logică a necesitat o atenție sporită asupra polarității semnalelor, fiind necesară adesea o negație finală
+pentru a restabili valoarea corectă a funcției. Această abordare hibridă evidențiază diferențele de proiectare
+specifice: în timp ce tehnologia TTL este optimizată pentru viteza porților NAND, tehnologia CMOS oferă o densitate
+excelentă și un consum redus de energie, fiind adecvată pentru structuri bazate pe porți NOR.
+
+// In a doua varianta utilizam porti SAU-NU in tehnologia CMOS pentru ultimele 3 functii, ia primele 4 functii raman
+// implementate cu porti SI-NU in tehnologia TTL conform implementarilor din sectiunea anterioara.
 
 
 #figure(
@@ -2870,5 +2914,34 @@ implementate cu porti SI-NU in tehnologia TTL conform implementarilor din sectiu
     caption: [Implementarea in a doua varianta a ansamblului functiilor],
 )
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
 
 #bibliography("bilbiography.yml")
