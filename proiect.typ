@@ -981,7 +981,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma fucked a functiei],
+        caption: [Forma conj a functiei],
     )
 ]
 
@@ -2506,11 +2506,12 @@ posibilitățile de grupare.
                 #fmd("c", $ #x3n + #x5n $) \
             $
 
-            Prima linie (rosu) corespunde lui #x4n, a doua (albastru) lui #x5, iar ultima linie (verde) lui #x3.
-
+            Prima linie (rosu) corespunde lui #x3n, a doua (albastru) lui #x5n.
         ]
     ],
 )
+
+#v(2.5em);
 
 #box[
 
@@ -2661,16 +2662,34 @@ posibilitățile de grupare.
 
 #text[
     #align(left)[
-        ==== Metoda Quine-McCluskey $F_d$
+        ==== Metoda Quine-McCluskey pentru $F_d$
     ]
 ]
+
+
+Functia de minimizat are urmatoarea expresie:
+#align(center)[
+    #fcd(
+        "d",
+        $
+            #x1 #x2 #x3n #x4n #x5n +
+            #x1n #x2n #x3 #x4n #x5 +
+            #x1n #x2n #x3 #x4 #x5n +
+            #x1n #x2 #x3n #x4 #x5n +
+            #x1n #x2 #x3 #x4n #x5n +
+            #x1 #x2n #x3n #x4 #x5n +
+            #x1 #x2n #x3 #x4n #x5n
+            = Sigma(5, 6, 10, 12, 18, 20, 24)
+        $,
+    )
+]
+
 
 
 #grid(
     columns: (1fr, 1fr),
     column-gutter: 5em,
     align(right)[
-
         #table(
             columns: 4,
             align: center + horizon,
@@ -2681,22 +2700,25 @@ posibilitățile de grupare.
 
             table.cell(rowspan: 1)[Grupa $A_0$], [0], [00000], [✓],
 
-            table.cell(rowspan: 3)[Grupa $A_1$],
-            [2], [00001], [✓],
+            table.cell(rowspan: 5)[Grupa $A_1$],
+            [1], [00001], [✓],
+            [2], [00010], [✓],
+            [4], [00100], [✓],
             [8], [01000], [✓],
             [16], [10000], [✓],
 
-            table.cell(rowspan: 10)[Grupa $A_2$],
-            [3], [00011], [✓],
+            table.cell(rowspan: 7)[Grupa $A_2$],
             [5], [00101], [✓],
             [6], [00110], [✓],
-            [9], [01001], [✓],
             [10], [01010], [✓],
             [12], [01100], [✓],
-            [17], [10001], [✓],
             [18], [10010], [✓],
             [20], [10100], [✓],
             [24], [11000], [✓],
+
+            table.cell(rowspan: 2)[Grupa $A_3$],
+            [7], [00111], [✓],
+            [11], [01011], [✓],
         )
     ],
     align(left)[
@@ -2709,8 +2731,7 @@ posibilitățile de grupare.
 
             table.header([*Grupa*], [*Nr.*], [*Repr. Binară*], [*Check*]),
 
-            table.cell(rowspan: 9)[Grupa $A_3$],
-            [11], [01011], [✓],
+            table.cell(rowspan: 8)[Grupa $A_3$],
             [13], [01101], [✓],
             [14], [01110], [✓],
             [19], [10011], [✓],
@@ -2753,28 +2774,24 @@ posibilitățile de grupare.
 
             table.header([*Grupa*], [*Nr.*], [*Repr. Binară*], [*Check*]),
 
-            table.cell(rowspan: 3)[Grupa $B_0$],
+            table.cell(rowspan: 5)[Grupa $B_0$],
+            [0, 1], [0000-], [✓],
             [0, 2], [000-0], [✓],
+            [0, 4], [00-00], [✓],
             [0, 8], [0-000], [✓],
             [0, 16], [-0000], [✓],
 
-            table.cell(rowspan: 12)[Grupa $B_1$],
-            [2, 3], [0001-], [✓],
+            table.cell(rowspan: 10)[Grupa $B_1$],
+            [1, 5], [00-01], [✓],
             [2, 6], [00-10], [✓],
             [2, 10], [0-010], [✓],
             [2, 18], [-0010], [✓],
-            [8, 9], [0100-], [✓],
+            [4, 5], [0010-], [✓],
+            [4, 6], [001-0], [✓],
+            [4, 12], [0-100], [✓],
+            [4, 20], [-0100], [✓],
             [8, 10], [010-0], [✓],
             [8, 12], [01-00], [✓],
-            [8, 24], [-1000], [✓],
-            [16, 17], [1000-], [✓],
-            [16, 18], [100-0], [✓],
-            [16, 20], [10-00], [✓],
-            [16, 24], [1-000], [✓],
-
-            table.cell(rowspan: 2)[Grupa $B_2$],
-            [3, 11], [0-011], [✓],
-            [3, 19], [-0011], [✓],
         )
 
     ],
@@ -2787,24 +2804,24 @@ posibilitățile de grupare.
 
             table.header([*Grupa*], [*Nr.*], [*Repr. Binară*], [*Check*]),
 
-            table.cell(rowspan: 17)[Grupa $B_2$],
+            table.cell(rowspan: 4)[Grupa $B_1$],
+            [8, 24], [-1000], [✓],
+            [16, 18], [100-0], [✓],
             [16, 20], [10-00], [✓],
             [16, 24], [1-000], [✓],
+
+            table.cell(rowspan: 11)[Grupa $B_2$],
+            [5, 7], [001-1], [✓],
             [5, 13], [0-101], [✓],
             [5, 21], [-0101], [✓],
+            [6, 7], [0011-], [✓],
             [6, 14], [0-110], [✓],
             [6, 22], [-0110], [✓],
-            [9, 11], [010-1], [✓],
-            [9, 13], [01-01], [✓],
-            [9, 25], [-1001], [✓],
             [10, 11], [0101-], [✓],
             [10, 14], [01-10], [✓],
             [10, 26], [-1010], [✓],
             [12, 13], [0110-], [✓],
             [12, 14], [011-0], [✓],
-            [12, 28], [-1100], [✓],
-            [17, 19], [100-1], [✓],
-            [17, 21], [10-01], [✓],
         )
     ],
 )
@@ -2826,7 +2843,7 @@ posibilitățile de grupare.
             table.header([*Grupa*], [*Nr.*], [*Repr. Binară*], [*Check*]),
 
             table.cell(rowspan: 10)[Grupa $B_2$],
-            [17, 25], [1-001], [✓],
+            [12, 28], [-1100], [✓],
             [18, 19], [1001-], [✓],
             [18, 22], [10-10], [✓],
             [18, 26], [1-010], [✓],
@@ -2837,7 +2854,9 @@ posibilitățile de grupare.
             [24, 26], [110-0], [✓],
             [24, 28], [11-00], [✓],
 
-            table.cell(rowspan: 18)[Grupa $B_3$],
+            table.cell(rowspan: 20)[Grupa $B_3$],
+            [7, 15], [0-111], [✓],
+            [7, 23], [-0111], [✓],
             [11, 15], [01-11], [✓],
             [11, 27], [-1011], [✓],
             [13, 15], [011-1], [✓],
@@ -2878,41 +2897,43 @@ posibilitățile de grupare.
             align: center + horizon,
             stroke: 0.5pt + luma(120),
 
-            table.cell(rowspan: 3)[Grupa $C_0$],
-            [0, 2, 8, 10], "0-0-0", [✓],
-            [0, 2, 16, 18], "-00-0", [✓],
-            [0, 8, 16, 24], "--000", [✓],
+            table.cell(rowspan: 7)[Grupa $C_0$],
+            [0, 1, 4, 5], [00-0-], [$crossmark$],
+            [0, 2, 4, 6], [00--0], [✓],
+            [0, 2, 8, 10], [0-0-0], [✓],
+            [0, 4, 8, 12], [0--00], [✓],
+            [0, 2, 16, 18], [-00-0], [✓],
+            [0, 4, 16, 20], [-0-00], [✓],
+            [0, 8, 16, 24], [--000], [✓],
 
-            table.cell(rowspan: 17)[Grupa $C_1$],
-            [2, 3, 10, 11], "0-01-", [✓],
-            [2, 6, 10, 14], "0--10", [✓],
-            [2, 3, 18, 19], "-001-", [✓],
-            [2, 6, 18, 22], "-0-10", [✓],
-            [2, 10, 18, 26], "--010", [✓],
-            [8, 9, 10, 11], "010--", [✓],
-            [8, 9, 12, 13], "01-0-", [✓],
-            [8, 10, 12, 14], "01--0", [✓],
-            [8, 9, 24, 25], "-100-", [✓],
-            [8, 10, 24, 26], "-10-0", [✓],
-            [8, 12, 24, 28], "-1-00", [✓],
-            [16, 17, 18, 19], "100--", [✓],
-            [16, 17, 20, 21], "10-0-", [✓],
-            [16, 18, 20, 22], "10--0", [✓],
-            [16, 17, 24, 25], "1-00-", [✓],
-            [16, 18, 24, 26], "1-0-0", [✓],
-            [16, 20, 24, 28], "1--00", [✓],
+            table.cell(rowspan: 15)[Grupa $C_1$],
+            [2, 6, 10, 14], [0--10], [✓],
+            [2, 6, 18, 22], [-0-10], [✓],
+            [2, 10, 18, 26], [--010], [✓],
+            [4, 5, 6, 7], [001--], [✓],
+            [4, 5, 12, 13], [0-10-], [✓],
+            [4, 6, 12, 14], [0-1-0], [✓],
+            [4, 5, 20, 21], [-010-], [✓],
+            [4, 6, 20, 22], [-01-0], [✓],
+            [4, 12, 20, 28], [--100], [✓],
+            [8, 10, 12, 14], [01--0], [✓],
+            [8, 10, 24, 26], [-10-0], [✓],
+            [8, 12, 24, 28], [-1-00], [✓],
+            [16, 18, 20, 22], [10--0], [✓],
+            [16, 18, 24, 26], [1-0-0], [✓],
+            [16, 20, 24, 28], [1--00], [✓],
 
             table.cell(rowspan: 10)[Grupa $C_2$],
-            [3, 11, 19, 27], "--011", [✓],
-            [5, 13, 21, 29], "--101", [$crossmark$],
-            [6, 14, 22, 30], "--110", [✓],
-            [9, 11, 13, 15], "01--1", [✓],
-            [9, 11, 25, 27], "-10-1", [✓],
-            [9, 13, 25, 29], "-1-01", [✓],
-            [10, 11, 14, 15], "01-1-", [✓],
-            [10, 11, 26, 27], "-101-", [✓],
-            [10, 14, 26, 30], "-1-10", [✓],
-            [12, 13, 14, 15], "011--", [✓],
+            [5, 7, 13, 15], [0-1-1], [✓],
+            [5, 7, 21, 23], [-01-1], [✓],
+            [5, 13, 21, 29], [--101], [✓],
+            [6, 7, 14, 15], [0-11-], [✓],
+            [6, 7, 22, 23], [-011-], [✓],
+            [6, 14, 22, 30], [--110], [✓],
+            [10, 11, 14, 15], [01-1-], [✓],
+            [10, 11, 26, 27], [-101-], [✓],
+            [10, 14, 26, 30], [-1-10], [✓],
+            [12, 13, 14, 15], [011--], [✓],
         )
     ],
 )
@@ -2929,171 +2950,198 @@ posibilitățile de grupare.
             align: center + horizon,
             stroke: 0.5pt + luma(120),
 
-            table.cell(rowspan: 14)[Grupa $C_2$],
-            [12, 13, 28, 29], "-110-", [✓],
-            [12, 14, 28, 30], "-11-0", [✓],
-            [17, 19, 21, 23], "10--1", [✓],
-            [17, 19, 25, 27], "1-0-1", [✓],
-            [17, 21, 25, 29], "1--01", [✓],
-            [18, 19, 22, 23], "10-1-", [✓],
-            [18, 19, 26, 27], "1-01-", [✓],
-            [18, 22, 26, 30], "1--10", [✓],
-            [20, 21, 22, 23], "101--", [✓],
-            [20, 21, 28, 29], "1-10-", [✓],
-            [20, 22, 28, 30], "1-1-0", [✓],
-            [24, 25, 26, 27], "110--", [✓],
-            [24, 25, 28, 29], "11-0-", [✓],
-            [24, 26, 28, 30], "11--0", [✓],
+            table.cell(rowspan: 21)[Grupa $C_2$],
+            [5, 7, 13, 15], [0-1-1], [✓],
+            [5, 7, 21, 23], [-01-1], [✓],
+            [5, 13, 21, 29], [--101], [✓],
+            [6, 7, 14, 15], [0-11-], [✓],
+            [6, 7, 22, 23], [-011-], [✓],
+            [6, 14, 22, 30], [--110], [✓],
+            [10, 11, 14, 15], [01-1-], [✓],
+            [10, 11, 26, 27], [-101-], [✓],
+            [10, 14, 26, 30], [-1-10], [✓],
+            [12, 13, 14, 15], [011--], [✓],
+            [12, 13, 28, 29], [-110-], [✓],
+            [12, 14, 28, 30], [-11-0], [✓],
+            [18, 19, 22, 23], [10-1-], [✓],
+            [18, 19, 26, 27], [1-01-], [✓],
+            [18, 22, 26, 30], [1--10], [✓],
+            [20, 21, 22, 23], [101--], [✓],
+            [20, 21, 28, 29], [1-10-], [✓],
+            [20, 22, 28, 30], [1-1-0], [✓],
+            [24, 25, 26, 27], [110--], [✓],
+            [24, 25, 28, 29], [11-0-], [✓],
+            [24, 26, 28, 30], [11--0], [✓],
 
-            table.cell(rowspan: 9)[Grupa $C_3$],
-            [11, 15, 27, 31], "-1-11", [✓],
-            [13, 15, 29, 31], "-11-1", [✓],
-            [14, 15, 30, 31], "-111-", [✓],
-            [19, 23, 27, 31], "1--11", [✓],
-            [21, 23, 29, 31], "1-1-1", [✓],
-            [22, 23, 30, 31], "1-11-", [✓],
-            [25, 27, 29, 31], "11--1", [✓],
-            [26, 27, 30, 31], "11-1-", [✓],
-            [28, 29, 30, 31], "111--", [✓],
+            table.cell(rowspan: 10)[Grupa $C_3$],
+            [7, 15, 23, 31], [--111], [✓],
+            [11, 15, 27, 31], [-1-11], [✓],
+            [13, 15, 29, 31], [-11-1], [✓],
+            [14, 15, 30, 31], [-111-], [✓],
+            [19, 23, 27, 31], [1--11], [✓],
+            [21, 23, 29, 31], [1-1-1], [✓],
+            [22, 23, 30, 31], [1-11-], [✓],
+            [25, 27, 29, 31], [11--1], [✓],
+            [26, 27, 30, 31], [11-1-], [✓],
+            [28, 29, 30, 31], [111--], [✓],
         )
 
         #align(left)[
             Mentionez din nou ca fiecare grupa $C_i$ reprezinta gruparea termenilor din grupele $B_i$ si $B_(i+1)$. In
             urmatorul tabel, calculam termenii cu diferenta de 3 biti intre ei.
         ]
-
-
-        #table(
-            columns: 4,
-            align: center + horizon,
-            stroke: 0.5pt + luma(120),
-
-            table.cell(rowspan: 1)[Grupa $D_0$],
-            [0, 2, 8, 10, \ 16, 18, 24, 26], "--0-0", [$crossmark$],
-
-            table.cell(rowspan: 4)[Grupa $D_1$],
-            [2, 3, 10, 11,\ 18, 19, 26, 27], "--01-", [$crossmark$],
-            [2, 6, 10, 14,\ 18, 22, 26, 30], "---10", [$crossmark$],
-            [8, 9, 10, 11,\ 12, 13, 14, 15], "01---", [✓],
-            [8, 9, 10, 11,\ 24, 25, 26, 27], "-10--", [✓],
-        )
-
     ],
     align(right)[
+        #align(left)[
+            Asadar, bla bla bla bla bla bla lol lmao lol cine ar fi crezut ce mama ei bag cv.
+
+        ]
         #table(
             columns: 4,
             align: center + horizon,
             stroke: 0.5pt + luma(120),
 
-            table.cell(rowspan: 6)[Grupa $D_1$],
-            [8, 9, 12, 13,\ 24, 25, 28, 29], "-1-0-", [✓],
+            table.cell(rowspan: 4)[Grupa $D_0$],
+            [0, 2, 4, 6,\ 8, 10, 12, 14], "0---0", [✓],
+            [0, 2, 4, 6,\ 16, 18, 20, 22], "-0--0", [✓],
+            [0, 2, 8, 10,\ 16, 18, 24, 26], "--0-0", [✓],
+            [0, 4, 8, 12,\ 16, 20, 24, 28], "---00", [✓],
+
+            table.cell(rowspan: 7)[Grupa $D_1$],
+            [2, 6, 10, 14,\ 18, 22, 26, 30], "---10", [✓],
+            [4, 5, 6, 7,\ 12, 13, 14, 15], "0-1--", [✓],
+            [4, 5, 6, 7,\ 20, 21, 22, 23], "-01--", [✓],
+            [4, 5, 12, 13,\ 20, 21, 28, 29], "--10-", [✓],
+            [4, 6, 12, 14,\ 20, 22, 28, 30], "--1-0", [✓],
             [8, 10, 12, 14,\ 24, 26, 28, 30], "-1--0", [✓],
-            [16, 17, 18, 19,\ 20, 21, 22, 23], "10---", [✓],
-            [16, 17, 18, 19,\ 24, 25, 26, 27], "1-0--", [✓],
-            [16, 17, 20, 21,\ 24, 25, 28, 29], "1--0-", [✓],
             [16, 18, 20, 22,\ 24, 26, 28, 30], "1---0", [✓],
 
-            table.cell(rowspan: 7)[Grupa $D_2$],
-            [9, 11, 13, 15,\ 25, 27, 29, 31], "-1--1", [✓],
-            [10, 11, 14, 15,\ 26, 27, 30, 31], "-1-1-", [✓],
+            table.cell(rowspan: 7)[grupa $D_2$],
+            [5, 7, 13, 15,\ 21, 23, 29, 31], "--1-1", [✓],
+            [6, 7, 14, 15,\ 22, 23, 30, 31], "--11-", [✓],
+            [10, 11, 14, 15,\ 26, 27, 30, 31], "-1-1-", [$crossmark$],
             [12, 13, 14, 15,\ 28, 29, 30, 31], "-11--", [✓],
-            [17, 19, 21, 23,\ 25, 27, 29, 31], "1---1", [✓],
-            [18, 19, 22, 23,\ 26, 27, 30, 31], "1--1-", [✓],
+            [18, 19, 22, 23,\ 26, 27, 30, 31], "1--1-", [$crossmark$],
             [20, 21, 22, 23,\ 28, 29, 30, 31], "1-1--", [✓],
-            [24, 25, 26, 27,\ 28, 29, 30, 31], "11---", [✓],
+            [24, 25, 26, 27,\ 28, 29, 30, 31], "11---", [$crossmark$],
         )
+    ],
+)
 
+
+#pagebreak();
+
+#grid(
+    columns: (1fr, 1fr),
+    column-gutter: 3em,
+
+    align(left)[
+        Tabelul de mai sus nu poate fi simplificat mai departe. Asadar, alcatuim tabelul implicantilor primi, unde este
+        de observat faptul ca ultimul termen (16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31) nu il luam
+        in considerare deoarece el nu contine combinatii adevarate.
+    ],
+    align(right)[
 
         #table(
             columns: 4,
             align: center + horizon,
             stroke: 0.5pt + luma(120),
 
-            table.cell(rowspan: 2)[Grupa $E_0$],
-            [8, 9, 10, 11,\ 12, 13, 14, 15,\ 24, 25, 26, 27,\ 28, 29, 30, 31],
-            "-1---",
-            [$crossmark$],
-            [16, 17, 18, 19,\ 20, 21, 22, 23,\ 24, 25, 26, 27,\ 28, 29, 30, 31],
-            "1----",
-            [$crossmark$],
-        )
+            table.cell(rowspan: 1)[Grupa $E_0$],
+            [0, 2, 4, 6,\ 8, 10, 12, 14,\ 16, 18, 20, 22,\ 24, 26, 28, 30], "----0", [$crossmark$],
 
-        #align(left)[
-            Tabelul de mai sus nu poate fi simplificat mai departe. Asadar, alcatuim tabelul implicantilor primi, unde
-            este de observat faptul ca ultimul termen (16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
-            nu il luam in considerare deoarece el nu contine combinatii adevarate.
-        ]
+            table.cell(rowspan: 1)[Grupa $E_1$],
+            [4, 5, 6, 7,\ 12, 13, 14, 15,\ 20, 21, 22, 23,\ 28, 29, 30, 31], "--1--", [$crossmark$],
+        )
     ],
 )
 
 
 
 
-
 #box[
 
-    #place(top + left, dx: 22em, dy: 2em)[
-        #line(length: 10em, stroke: 1.5pt + red)
-    ]
-
-    // #place(top + left, dx: 33em, dy: 2em)[
-    //     #line(length: 5em, angle: 90deg, stroke: 1.5pt + red)
-    // ]
-    //
-    // #place(top + left, dx: 34.5em, dy: 2em)[
-    //     #line(length: 5em, angle: 90deg, stroke: 1.5pt + red)
-    // ]
-
-
-    #place(top + left, dx: 22em, dy: 3.5em)[
-        #line(length: 10em, stroke: 1.5pt + blue)
+    #place(bottom + left, dx: 20em, dy: -2em)[
+        #line(length: 11em, stroke: 1.5pt + red)
     ]
 
 
-    #place(top + left, dx: 22em, dy: 4.8em)[
-        #line(length: 10em, stroke: 1.5pt + green)
+    #place(top + left, dx: 23.5em, dy: 2em)[
+        #line(length: 5.5em, angle: 90deg, stroke: 1.5pt + red)
+    ]
+
+    #place(top + left, dx: 27em, dy: 2em)[
+        #line(length: 5.5em, angle: 90deg, stroke: 1.5pt + red)
     ]
 
 
-    #place(top + left, dx: 22em, dy: 6em)[
-        #line(length: 10em, stroke: 1.5pt + orange)
+
+    #place(top + left, dx: 30.5em, dy: 2em)[
+        #line(length: 5.5em, angle: 90deg, stroke: 1.5pt + red)
     ]
 
 
-    #place(top + left, dx: 22em, dy: 7.4em)[
-        #line(length: 10em, stroke: 1.5pt + purple)
+    #place(bottom + left, dx: 20em, dy: -0.75em)[
+        #line(length: 11em, stroke: 1.5pt + blue)
     ]
 
 
-    #table(
-        columns: 9,
-        align: center + horizon,
-        stroke: 0.5pt + luma(120),
-        inset: 4pt,
+    #place(top + left, dx: 20.2em, dy: 2em)[
+        #line(length: 7em, angle: 90deg, stroke: 1.5pt + blue)
+    ]
 
-        table.header(
-            table.cell()[Mintermeni],
-            table.cell[0],
-            table.cell[2],
-            table.cell[3],
-            table.cell[5],
-            table.cell[6],
-            table.cell[8],
-            table.cell[9],
-            table.cell()[$x_1 x_2 x_3 x_4 x_5$],
-        ),
 
-        [5,13,21,29], [], [], [], [$crossmark$], [], [], [], "--101",
 
-        [0,2,8,10,16,18,24,26], [$crossmark$], [$crossmark$], [], [], [], [$crossmark$], [], "--0-0",
 
-        [2,3,10,11,18,19,26,27], [], [$crossmark$], [$crossmark$], [], [], [], [], "--01-",
+    #align(center)[
+        #table(
+            columns: 9,
+            align: center + horizon,
+            stroke: 0.5pt + luma(120),
+            inset: 4pt,
 
-        [2,6,10,14,18,22,26,30], [], [$crossmark$], [], [], [$crossmark$], [], [], "---10",
+            table.header(
+                table.cell()[Mintermeni],
+                table.cell[5],
+                table.cell[6],
+                table.cell[10],
+                table.cell[12],
+                table.cell[18],
+                table.cell[20],
+                table.cell[24],
+                table.cell()[$x_1 x_2 x_3 x_4 x_5$],
+            ),
 
-        [8,9,10,11,12,13,14,15,24,25,26,27,28,29,30,31], [], [], [], [], [], [$crossmark$], [$crossmark$], "-1---",
-        [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31], [], [], [], [], [], [], [], "1----",
-    )
+            [0,1,4,5], [$crossmark$], [], [], [], [], [], [], "00-0-",
+
+            [10,11,14,15,26,27,30,31], [], [], [$crossmark$], [], [], [], [], "-1-1-",
+
+            [18,19,22,23,26,27,30,31], [], [], [], [], [$crossmark$], [], [], "1--1-",
+
+            [24,25,26,27,28,29,30,31], [], [], [], [], [], [], [$crossmark$], "11---",
+
+            [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30],
+            [],
+            [$crossmark$],
+            [$crossmark$],
+            [$crossmark$],
+            [$crossmark$],
+            [$crossmark$],
+            [$crossmark$],
+            "----0",
+
+            [4,5,6,7,12,13,14,15,20,21,22,23,28,29,30,31],
+            [$crossmark$],
+            [$crossmark$],
+            [],
+            [$crossmark$],
+            [],
+            [$crossmark$],
+            [],
+            "--1--",
+        )
+
+    ]
 ]
 
 #text[
@@ -3104,8 +3152,7 @@ posibilitățile de grupare.
         #fmd(
             "d",
             $
-                // #x2 + #x4 #x5n + #x2n #x3n #x4 + #x2n #x3n #x5n
-                #x3 #x4n #x5 + #x3n #x5n + #x3n #x4 + #x4 #x5n + #x2
+                #x3 + #x5n
             $,
         )
     ]
@@ -3324,35 +3371,3 @@ de interfatare, pentru a asigura... .
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Alternativ, forma canonică este descrisă de mulțimea mintermenilor:
-//
-// $
-// [open]
-// rules = [
-//
-// ]
-// [open]
-// rules = [
-//
-// ]
-// [open]
-// rules = [
-//
-// ]
-//     F_c^"FCD" = Sigma(0, 1, 3, 4, 5, 6, 7, 8, 9)
-// $
