@@ -3237,7 +3237,7 @@ eficientă în tehnologia TTL (Transistor-Transistor Logic). Fiecare segment a f
 optimizări între funcții, asigurând o claritate maximă a fluxului de semnal pentru fiecare ieșire.
 
 #figure(
-    image("fa_bun.png"),
+    image("fa.png"),
     caption: [Functia a],
 )
 
@@ -3339,8 +3339,28 @@ de interfatare, pentru a asigura... .
 )
 
 
+== Partea II
 
 
+#figure(
+    image("ansamblu_mux4.png"),
+    caption: [Implementarea ansamblului cu MUX de 8 cai],
+)
+
+#figure(
+    image("ansamblu_mux16.png"),
+    caption: [Implementarea ansamblului cu MUX de 16 cai],
+)
+
+#figure(
+    image("ansamblu_mux8.png"),
+    caption: [Implementarea ansamblului cu DMUX-uri de 8 cai],
+)
+
+#figure(
+    image("ansamblu_dmux16.png"),
+    caption: [Implementarea ansamblului cu DMUX de 16 cai],
+)
 
 
 
