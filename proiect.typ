@@ -3353,7 +3353,7 @@ de interfatare, pentru a asigura... .
 )
 
 #figure(
-    image("ansamblu_mux8.png"),
+    image("ansamblu_dmux8.png"),
     caption: [Implementarea ansamblului cu DMUX-uri de 8 cai],
 )
 
