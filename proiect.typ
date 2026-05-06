@@ -3238,39 +3238,39 @@ optimizări între funcții, asigurând o claritate maximă a fluxului de semnal
 
 #figure(
     image("fa.png"),
-    caption: [Functia a],
+    caption: [Functia a. Circuite Integrate folosite: 1x7400],
 )
 
 
 #figure(
     image("fb.png"),
-    caption: [Functia b],
+    caption: [Functia b. Circuite Integrate folosite: 1x7400],
 )
 
 
 #figure(
     image("fc.png"),
-    caption: [Functia c],
+    caption: [Functia c. Circuite Integrate folosite: $1/4$x7400],
 )
 
 #figure(
     image("fd.png"),
-    caption: [Functia d],
+    caption: [Functia d. Circuite Integrate folosite: $1/2$x7400],
 )
 
 #figure(
     image("fe.png"),
-    caption: [Functia e],
+    caption: [Functia e. Circuite Integrate folosite: $3/4$x7400, $2/3$x7410],
 )
 
 #figure(
     image("ff.png"),
-    caption: [Functia f],
+    caption: [Functia f. Circuite Integrate folosite: $1$x7400],
 )
 
 #figure(
     image("fg.png"),
-    caption: [Functia g],
+    caption: [Functia g. Circuite Integrate folosite: $1/3$x7410, $1/4$x7400, $1$x7400],
 )
 
 #pagebreak()
@@ -3324,14 +3324,26 @@ Pentru a adapta funcțiile la poarta universală SAU-NU, am recurs la transforma
 
 
 #figure(
-    image("ansamblu2.png"),
+    image("ansamblu-ttl-cmos.png"),
     caption: [Implementarea in a doua varianta a ansamblului functiilor],
 )
 
 #pagebreak();
 
-De mentionat este faptul ca elementele de circuit CMOS si TTL functioneaza la conditii diferite, de aceea, este nevoie
-de interfatare, pentru a asigura... .
+
+
+// În proiectarea unui sistem numeric, o problemă o constituie interfațarea între circuite integrate aparținând unor
+// familii diferite. Utilizarea de circuite integrate din familii diferite este, de regulă, provenită din cerința
+// optimizării locale pe baza unor criterii de performanță impuse: timp de propagare, putere consumată, imunitate la
+// perturbații.
+
+In cadrul proiectarii unui sistem numeric ce contine elemente din tehnologii diferite, in acest csz tehnologiile TTL si
+CMOS, exista nevoia unei interfeta care marcheaza tranzitia de la elementele de un tip la altul. Interfata se impune
+deoarece elementele din tehnologiile diferite functioneaza la voltaje diferite. Când circuitele TTL trebuie sa comande
+circuite CMOS alimentate dintr-o singură sursă de tensiune de 5V, nivelul minim de ieșire în stare High garantat de TTL
+(2,4V) este mai mic decât nivelul minim de intrare acceptat de CMOS pentru stare High. Se poate crește nivelul de ieșire
+în stare High al circuitului TTl utilizând o rezistență conectată intre ieșire și VCC.
+
 
 #figure(
     image("ttl_cmos"),
@@ -3339,24 +3351,205 @@ de interfatare, pentru a asigura... .
 )
 
 
+#figure(
+    image("ttl-cmos-voltaj.png"),
+    caption: [Nivele logice TTL-CMOS],
+)
+
+
+#pagebreak();
+
 == Partea II
 
 
+// cerinta muxuri
+
+=== Implementarea ansamblulului functiilor logice cu MUX-uri de 4, 16 cai
+
+#rect(
+    fill: rgb("f0f0f0"),
+    inset: 12pt,
+    radius: 4pt,
+    width: 100%,
+)[
+    #text(weight: "bold")[`Cerinta Rezolvata in aceasta Sectiune:`]
+    Să se implementeze ansamblul funcțiilor logice cu MUX-uri de 4, respectiv 16 căi (se vor utiliza circuite integrate
+    realizate în tehnologia TTL).
+]
+
+
+În cadrul proiectării unui sistem numeric ce conține elemente din tehnologii diferite (în acest caz, tehnologiile TTL și
+CMOS), apare nevoia unei interfețe care să marcheze tranziția de la elementele de un tip la altul. Interfața se impune
+deoarece familiile logice diferite funcționează la niveluri de tensiune diferite. Când circuitele TTL trebuie să comande
+circuite CMOS alimentate dintr-o singură sursă de tensiune de 5V, nivelul minim de ieșire în starea HIGH garantat de TTL
+(2,4V) este mai mic decât nivelul minim de intrare acceptat de CMOS pentru starea HIGH. Se poate crește nivelul de
+ieșire în starea HIGH al circuitului TTL utilizând o rezistență conectată între ieșire și VCC (rezistență de pull-up).
+
+Multiplexoarele sunt circuite logice combinaționale care au, în cazul general, $2^n$ intrări de date, $n$ intrări de
+selecție și o ieșire. Starea ieșirii la un moment dat este determinată de intrarea $I_k$, unde indicele $k$ este
+echivalentul zecimal al numărului binar reprezentat de intrările de selecție, în următorul format:
+$
+    k = (S_(n-1) S_(n-2) ... S_2 S_1 S_0)
+$
+
+Astfel, intrările de selecție, numite și variabile de adresă, dictează ieșirea circuitului, funcționalitate ce justifică
+denumirea alternativă a multiplexoarelor: circuite de selecție @moldo.
+
+Pentru ca la ieșire să apară întotdeauna doar intrarea selectată, trebuie ca selecția să se facă după stabilirea
+intrărilor de adresă. Din acest motiv, multiplexoarele sunt prevăzute cu o intrare suplimentară de autorizare
+(validare/strobare), adesea notată cu G (din englezescul *Gate*), care condiționează selecția fiecărei intrări. De cele
+mai multe ori, această intrare este activă în 0 logic (notată $overline(G)$), permițând funcționarea circuitului doar
+când se aplică un nivel LOW. Această intrare suplimentară poate fi folosită și la extinderea numărului de intrări, prin
+cascadarea mai multor circuite multiplexoare.
+
+Utilizarea multiplexorului $2^n:1$ ca circuit logic combinațional de $n$ variabile este posibilă deoarece, datorită
+structurii sale interne, se obțin termenii canonici de $n$ variabile, cât și suma logică dintre acești termeni (nivelul
+logic SAU). De aici rezultă că se poate implementa orice funcție booleană dată sub formă canonică disjunctivă @moldo.
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+        Mai departe, se va implementa ansamblul funcțiilor în patru variante, folosind pe rând: #v(0.01em)
+        - MUX-uri de 4 căi
+        - MUX-uri de 16 căi
+        - DMUX-uri de 8 căi
+        - DMUX-uri de 16 căi
+    ],
+    [
+        #v(1em)
+        La multiplexoare, implementarea funcțiilor logice se face pornind direct de la forma canonică disjunctivă a
+        funcției, spre deosebire de circuitele anterioare care au presupus, în prealabil, minimizarea funcțiilor prin
+        algoritmi precum diagramele Veitch-Karnaugh sau metoda Quine-McCluskey.
+    ],
+)
+
+==== Implementarea ansamblului cu MUX-uri de 4 căi
+
+Se consideră multiplexorul $2^2:1$ cu patru intrări de date ($C_0, C_1, C_2, C_3$), două intrări de selecție, B și A (cu
+ponderile $2^1, 2^0$), și o intrare de strobare $overline(G)$ activă în 0 logic. Expresia ieșirii, notată cu Y
+(considerând circuitul validat), este:
+
+$
+    Y = overline(B) dot overline(A) dot C_0 + overline(B) dot A dot C_1 + B dot overline(A) dot C_2 + B dot A dot C_3 (1)
+$
+
+Din relație se poate observa că apar cei 4 termeni canonici posibili generați de variabilele de selecție, de unde
+rezultă că utilizarea acestui multiplexor pentru implementarea funcțiilor logice este directă. Pentru orice combinație
+de variabile de intrare, funcția poate fi descrisă printr-o expresie redusă, care nu depinde decât de una sau de un
+număr limitat de variabile de date, la care se raportează ieșirea. Procesul începe cu tabelul de adevăr al funcției, în
+care se separă două dintre variabile ca intrări de selecție; în acest caz, #x4 și #x5.
+
+
+#align(center)[
+    #table(
+        columns: (auto, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, auto),
+        align: center + horizon,
+        stroke: 0.5pt + luma(120),
+        inset: 4pt,
+
+        table.cell(rowspan: 2)[*Echivalent zecimal*],
+        table.cell(colspan: 3)[*Variabile de intrare*],
+        table.cell(colspan: 2)[*Variabile de selecție*],
+        [*Funcția*],
+        table.cell(rowspan: 2)[*Valoarea*],
+
+        [#x1], [#x2], [#x3], [#x4], [#x5], [$F_e$],
+        [24], [1], [1], [0], [0], [0], [1], [#x2],
+        [12], [0], [1], [1], [0], [0], [1], [#x2],
+        [20], [1], [0], [1], [0], [0], [0], [#x2],
+
+        [5], [0], [0], [1], [0], [1], [1], [#x3],
+        [9], [0], [1], [0], [0], [1], [0], [#x3],
+        [17], [1], [0], [0], [0], [1], [0], [#x3],
+
+        [6], [0], [0], [1], [1], [0], [0], [#x1],
+        [10], [0], [1], [0], [1], [0], [0], [#x1],
+        [18], [1], [0], [0], [1], [0], [1], [#x1],
+
+        [3], [0], [0], [0], [1], [1], [0], [$"GND"$],
+    )
+]
+
+Conform tabelului de mai sus, functia $F_e$ poate fi rescrisa aplicand formula (1):
+
+
+$
+    Y = overline(#x4) dot overline(#x5) dot #x2 + overline(#x4) dot #x5 dot #x3 + #x4 dot overline(#x5) dot #x1 + #x4 dot #x5 dot 0
+$
+
+#v(1em)
+
+In realizarea schemelor in programul Orcad Capture am utilizat MUX-ul 74LS153, si un chip 7404 pentru obtinerea formelor
+negate a variabilelor functiei.
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+        #figure(
+            image("74ls153.jpg", height: 5cm),
+            caption: [MUX de opt cai 74LS152],
+        )
+    ],
+    [
+        #figure(
+            image("IC7404.png", height: 5cm),
+            caption: [MUX de opt cai 74LS152],
+        )
+    ],
+)
+
+
+
+#pagebreak();
+
 #figure(
     image("ansamblu_mux4.png"),
-    caption: [Implementarea ansamblului cu MUX de 8 cai],
+    caption: [Implementarea ansamblului cu MUX de 4 cai],
 )
+
+
+
+==== Implementarea ansamblului cu MUX-uri de 16 cai
+
+
+
+#pagebreak();
 
 #figure(
     image("ansamblu_mux16.png"),
     caption: [Implementarea ansamblului cu MUX de 16 cai],
 )
 
+
+=== Implementarea ansamblulului functiilor logice cu DMUX-uri de 8, 16 cai
+
+// cerinta: dmuxuri
+#rect(
+    fill: rgb("f0f0f0"),
+    inset: 12pt,
+    radius: 4pt,
+    width: 100%,
+)[
+    #text(weight: "bold")[`Cerinta Rezolvata in aceasta Sectiune:`]
+    Să se implementeze ansamblul funcțiilor logice cu DMUX-uri de 8, respectiv 16 căi şi porți logice ŞI-NU în prima
+    variantă, respectiv ŞI în a doua variantă (se vor utiliza circuite integrate realizate în tehnologia CMOS).
+]
+
+
+==== Implementarea ansamblului cu DMUX-uri de 8 cai
+
+
 #figure(
     image("ansamblu_dmux8.png"),
     caption: [Implementarea ansamblului cu DMUX-uri de 8 cai],
 )
 
+
+==== Implementarea ansamblului cu DMUX-uri de 16 cai
 #figure(
     image("ansamblu_dmux16.png"),
     caption: [Implementarea ansamblului cu DMUX de 16 cai],
@@ -3367,8 +3560,137 @@ de interfatare, pentru a asigura... .
 
 
 
+#align(center)[
+    #table(
+        columns: (auto, auto, auto, auto, 1fr),
+        align: center,
+        fill: (_, row) => if row == 0 { luma(230) } else { none },
+        [*Echivalent zecimal*],
+        [*Variabile de intrare*],
+        [*Variabile de selecție* \ ($x_4, x_5$)],
+        [*Funcția* \ ($I_k$)],
+        [*Valoarea*],
+
+        [0 - 7], [$x_1, x_2, x_3$], [0 0], [$I_0$], [$F_0(x_1, x_2, x_3)$],
+        [8 - 15], [$x_1, x_2, x_3$], [0 1], [$I_1$], [$F_1(x_1, x_2, x_3)$],
+        [16 - 23], [$x_1, x_2, x_3$], [1 0], [$I_2$], [$F_2(x_1, x_2, x_3)$],
+        [24 - 31], [$x_1, x_2, x_3$], [1 1], [$I_3$], [$F_3(x_1, x_2, x_3)$],
+    )
+]
+
+#v(1em)
+
+#align(center)[
+    #table(
+        columns: (auto, auto, auto, auto, 1fr),
+        align: center,
+        fill: (_, row) => if row == 0 { luma(230) } else { none },
+
+        // Header
+        [*Echivalent \ zecimal*],
+        [*Variabile de \ intrare* ($x_5$)],
+        [*Variabile de selecție* \ ($x_1, x_2, x_3, x_4$)],
+        [*Funcția* \ ($I_k$)],
+        [*Valoarea*],
+
+        // I_0
+        [0], [0], [0 0 0 0], [$I_0$], table.cell(rowspan: 2)[GND / VCC],
+        [1], [1], [0 0 0 0], [$I_0$],
+
+        // I_1
+        [2], [0], [0 0 0 1], [$I_1$], table.cell(rowspan: 2)[GND / VCC],
+        [3], [1], [0 0 0 1], [$I_1$],
+
+        // I_2
+        [4], [0], [0 0 1 0], [$I_2$], table.cell(rowspan: 2)[GND / VCC],
+        [5], [1], [0 0 1 0], [$I_2$],
+
+        // I_3
+        [6], [0], [0 0 1 1], [$I_3$], table.cell(rowspan: 2)[GND / VCC],
+        [7], [1], [0 0 1 1], [$I_3$],
+
+        // I_4
+        [8], [0], [0 1 0 0], [$I_4$], table.cell(rowspan: 2)[GND / VCC],
+        [9], [1], [0 1 0 0], [$I_4$],
+
+        // I_5
+        [10], [0], [0 1 0 1], [$I_5$], table.cell(rowspan: 2)[GND / VCC],
+        [11], [1], [0 1 0 1], [$I_5$],
+
+        // I_6
+        [12], [0], [0 1 1 0], [$I_6$], table.cell(rowspan: 2)[GND / VCC],
+        [13], [1], [0 1 1 0], [$I_6$],
+
+        // I_7
+        [14], [0], [0 1 1 1], [$I_7$], table.cell(rowspan: 2)[GND / VCC],
+        [15], [1], [0 1 1 1], [$I_7$],
+
+        // I_8
+        [16], [0], [1 0 0 0], [$I_8$], table.cell(rowspan: 2)[GND / VCC],
+        [17], [1], [1 0 0 0], [$I_8$],
+
+        // I_9
+        [18], [0], [1 0 0 1], [$I_9$], table.cell(rowspan: 2)[GND / VCC],
+        [19], [1], [1 0 0 1], [$I_9$],
+
+        // I_10
+        [20], [0], [1 0 1 0], [$I_{10}$], table.cell(rowspan: 2)[GND / VCC],
+        [21], [1], [1 0 1 0], [$I_{10}$],
+
+        // I_11
+        [22], [0], [1 0 1 1], [$I_{11}$], table.cell(rowspan: 2)[GND / VCC],
+        [23], [1], [1 0 1 1], [$I_{11}$],
+
+        // I_12
+        [24], [0], [1 1 0 0], [$I_{12}$], table.cell(rowspan: 2)[GND / VCC],
+        [25], [1], [1 1 0 0], [$I_{12}$],
+
+        // I_13
+        [26], [0], [1 1 0 1], [$I_{13}$], table.cell(rowspan: 2)[GND / VCC],
+        [27], [1], [1 1 0 1], [$I_{13}$],
+
+        // I_14
+        [28], [0], [1 1 1 0], [$I_{14}$], table.cell(rowspan: 2)[GND / VCC],
+        [29], [1], [1 1 1 0], [$I_{14}$],
+
+        // I_15
+        [30], [0], [1 1 1 1], [$I_{15}$], table.cell(rowspan: 2)[GND / VCC],
+        [31], [1], [1 1 1 1], [$I_{15}$],
+    )
+]
 
 
+
+
+*Notă:* Variabila $x_5$ este ignorată (Don't Care - X) deoarece liniile de selecție asigură o acoperire suficientă
+pentru deciziile de logică statică (`GND` / `VCC`).
+
+#align(center)[
+    #table(
+        columns: (auto, auto, auto, auto, auto, auto, auto),
+        align: center,
+        fill: (_, row) => if row == 0 { luma(230) } else { none },
+        [*$x_1$*], [*$x_2$*], [*Cip Activ*], [*Ieșiri Active*], [*G1 (Req: 1)*], [*G2A (Req: 0)*], [*G2B (Req: 0)*],
+        [0], [0], [DMUX 1], [$Y_0 - Y_7$], [VCC / $overline(x_1)$], [$x_1$], [$x_2$],
+        [0], [1], [DMUX 2], [$Y_8 - Y_15$], [$x_2$], [$x_1$], [GND],
+        [1], [0], [DMUX 3], [$Y_16 - Y_23$], [$x_1$], [GND], [$x_2$],
+        [1], [1], [DMUX 4], [$Y_24 - Y_31$], [$x_1$], [$overline(x_1)$], [$overline(x_2)$],
+    )
+]
+*Notă:* Semnalele din coloanele G1, G2A, G2B reprezintă o sugestie de cablare pe baza variabilelor $x_1$ și $x_2$ pentru
+a respecta starea de funcționare a decodificatorului (1, 0, 0). Selecția adreselor (C, B, A) se face în paralel pe toate
+cipurile folosind $x_3, x_4, x_5$.
+
+#align(center)[
+    #table(
+        columns: (auto, auto, auto, auto),
+        align: center,
+        fill: (_, row) => if row == 0 { luma(230) } else { none },
+        [*$x_1$*], [*Cip Activ*], [*Pini de Date (D, C, B, A)*], [*Ieșiri Active*],
+        [0], [DMUX 1], [$x_2, x_3, x_4, x_5$], [$Y_0 - Y_15$],
+        [1], [DMUX 2], [$x_2, x_3, x_4, x_5$], [$Y_16 - Y_31$],
+    )
+]
 
 
 
