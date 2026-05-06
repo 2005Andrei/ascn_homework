@@ -808,7 +808,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma canonica a functiei segmenetului a],
+        caption: [Forma conjunctiva canonica a functiei segmenetului a],
     )
 
 ]
@@ -931,7 +931,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disjunctiva],
+        caption: [Forma disjunctiva a segmentului b],
     )
 
 
@@ -981,7 +981,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma conj a functiei],
+        caption: [Forma conjunctiva a functiei segmentului b],
     )
 ]
 
@@ -1103,7 +1103,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Fomr a],
+        caption: [Forma disjunctiva a functiei segmentului c],
     )
 
     #pagebreak();
@@ -1151,7 +1151,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disjunctiva],
+        caption: [Forma disjunctiva a functiei segmentului c],
     )
 
 
@@ -1258,7 +1258,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disj a functiei d],
+        caption: [Forma disjunctiva a functiei d],
     )
 
 
@@ -1324,7 +1324,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma conj a functiei d],
+        caption: [Forma conjunctiva a functiei d],
     )
 ]
 
@@ -1433,7 +1433,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disj a functiei e],
+        caption: [Forma disjunctiva a functiei e],
     )
 
 
@@ -1513,7 +1513,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disj a functiei e],
+        caption: [Forma disjunctiva a functiei e],
     )
 ]
 
@@ -1685,7 +1685,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disj a lui f],
+        caption: [Forma disjunctiva a functiei f],
     )
 
     #pagebreak();
@@ -1747,7 +1747,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disj a lui f],
+        caption: [Forma conjunctiva a functiei f],
     )
 ]
 
@@ -1851,7 +1851,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disj a lui g],
+        caption: [Forma disjunctiva a lui g],
     )
 
     #block()[
@@ -1903,7 +1903,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
                 )
             },
         ),
-        caption: [Forma disj a lui g],
+        caption: [Forma conjunctiva a functiei g],
     )
 ]
 
@@ -3236,6 +3236,28 @@ Morgan. Astfel, o sumă de produse (structură ȘI-SAU) este transformată într
 eficientă în tehnologia TTL (Transistor-Transistor Logic). Fiecare segment a fost tratat individual, fără a căuta
 optimizări între funcții, asigurând o claritate maximă a fluxului de semnal pentru fiecare ieșire.
 
+
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+        #figure(
+            image("7400-Quad-2-input-NAND-gate-1.jpg", height: 5cm),
+            caption: [Circuit Integrat 7400],
+        )
+    ],
+    [
+        #figure(
+            image("7410", height: 5cm),
+            caption: [Circuit Integrat 7410],
+        )
+
+    ],
+)
+
+
 #figure(
     image("fa.png"),
     caption: [Functia a. Circuite Integrate folosite: 1x7400],
@@ -3250,17 +3272,17 @@ optimizări între funcții, asigurând o claritate maximă a fluxului de semnal
 
 #figure(
     image("fc.png"),
-    caption: [Functia c. Circuite Integrate folosite: $1/4$x7400],
+    caption: [Functia c. Circuite Integrate folosite: 1x7400(-3)],
 )
 
 #figure(
     image("fd.png"),
-    caption: [Functia d. Circuite Integrate folosite: $1/2$x7400],
+    caption: [Functia d. Circuite Integrate folosite: 1x7400(-2)],
 )
 
 #figure(
     image("fe.png"),
-    caption: [Functia e. Circuite Integrate folosite: $3/4$x7400, $2/3$x7410],
+    caption: [Functia e. Circuite Integrate folosite: 1x7400(-1), 1x7410(-1)],
 )
 
 #figure(
@@ -3270,7 +3292,7 @@ optimizări între funcții, asigurând o claritate maximă a fluxului de semnal
 
 #figure(
     image("fg.png"),
-    caption: [Functia g. Circuite Integrate folosite: $1/3$x7410, $1/4$x7400, $1$x7400],
+    caption: [Functia g. Circuite Integrate folosite: 1x7410(-2), 2x7400(-3)],
 )
 
 #pagebreak()
@@ -3289,7 +3311,7 @@ necesare.
 
 
 #figure(
-    image("ansamblu.png"),
+    image("ansamblu1.png"),
     caption: [Implementarea in prima varianta a ansamblului functiilor],
 )
 
@@ -3377,14 +3399,6 @@ circuite CMOS alimentate dintr-o singură sursă de tensiune de 5V, nivelul mini
     realizate în tehnologia TTL).
 ]
 
-
-În cadrul proiectării unui sistem numeric ce conține elemente din tehnologii diferite (în acest caz, tehnologiile TTL și
-CMOS), apare nevoia unei interfețe care să marcheze tranziția de la elementele de un tip la altul. Interfața se impune
-deoarece familiile logice diferite funcționează la niveluri de tensiune diferite. Când circuitele TTL trebuie să comande
-circuite CMOS alimentate dintr-o singură sursă de tensiune de 5V, nivelul minim de ieșire în starea HIGH garantat de TTL
-(2,4V) este mai mic decât nivelul minim de intrare acceptat de CMOS pentru starea HIGH. Se poate crește nivelul de
-ieșire în starea HIGH al circuitului TTL utilizând o rezistență conectată între ieșire și VCC (rezistență de pull-up).
-
 Multiplexoarele sunt circuite logice combinaționale care au, în cazul general, $2^n$ intrări de date, $n$ intrări de
 selecție și o ieșire. Starea ieșirii la un moment dat este determinată de intrarea $I_k$, unde indicele $k$ este
 echivalentul zecimal al numărului binar reprezentat de intrările de selecție, în următorul format:
@@ -3432,7 +3446,7 @@ ponderile $2^1, 2^0$), și o intrare de strobare $overline(G)$ activă în 0 log
 (considerând circuitul validat), este:
 
 $
-    Y = overline(B) dot overline(A) dot C_0 + overline(B) dot A dot C_1 + B dot overline(A) dot C_2 + B dot A dot C_3 (1)
+    Y = overline(B) dot overline(A) dot C_0 + overline(B) dot A dot C_1 + B dot overline(A) dot C_2 + B dot A dot C_3 dot 1
 $
 
 Din relație se poate observa că apar cei 4 termeni canonici posibili generați de variabilele de selecție, de unde
@@ -3481,8 +3495,11 @@ $
 
 #v(1em)
 
-In realizarea schemelor in programul Orcad Capture am utilizat MUX-ul 74LS153, si un chip 7404 pentru obtinerea formelor
-negate a variabilelor functiei.
+
+În realizarea schemelor în programul OrCAD Capture am utilizat circuitul integrat 74LS153. Acesta este un cip optimizat
+care conține două multiplexoare de 4 căi independente în aceeași capsulă, permițând astfel o implementare eficientă și
+reducerea numărului de componente de pe placă. Pentru obținerea formelor negate ale variabilelor de intrare s-a utilizat
+un circuit integrat 7404 (Hex Inverter).
 
 #grid(
     columns: (1fr, 1fr),
@@ -3491,13 +3508,13 @@ negate a variabilelor functiei.
     [
         #figure(
             image("74ls153.jpg", height: 5cm),
-            caption: [MUX de opt cai 74LS152],
+            caption: [Cicruit Integrate: MUX 74LS152],
         )
     ],
     [
         #figure(
             image("IC7404.png", height: 5cm),
-            caption: [MUX de opt cai 74LS152],
+            caption: [Circuit Integrat 7404],
         )
     ],
 )
@@ -3508,22 +3525,59 @@ negate a variabilelor functiei.
 
 #figure(
     image("ansamblu_mux4.png"),
-    caption: [Implementarea ansamblului cu MUX de 4 cai],
+    caption: [Implementarea ansamblului cu MUX de 4 cai. 4x74LS153, 1x7404(-3)],
 )
 
 
 
 ==== Implementarea ansamblului cu MUX-uri de 16 cai
 
+Pentru implementarea circuitului folosind multiplexoare de 16 căi ($2^4:1$), se vor aloca patru dintre cele cinci
+variabile ale codului „2 din 5” pentru intrările de selecție #x1, #x2, #x3, #x4, iar #x5 ramane ca variabila de intrare.
+Multiplexorul are 8 intrări de date ($C_0, dots, C_7$), care vor fi alimentate fie cu constante logice ($0$ sau $1$),
+fie cu funcții simple realizate cu variabilele rămase (#x5).
 
+Expresia analitică a ieșirii $Y$ pentru un MUX $8:1$ (considerând intrarea de validare activă) este dictată de suma
+produselor dintre mintermii variabilelor de selecție și intrările de date corespunzătoare:
+
+$
+    Y = overline(#x3) dot overline(#x4) dot overline(#x5) dot C_0 + overline(#x3) dot overline(#x4) dot #x5 dot C_1 + dots + #x3 dot #x4 dot #x5 dot C_7
+$
+
+Prin gruparea liniilor din tabelul de adevăr în funcție de cele 8 combinații posibile ale variabilelor de selecție, se
+determină ușor valoarea logică pentru fiecare intrare $C_i$. Pentru această etapă a proiectului, se poate utiliza
+circuitul integrat TTL 74LS151, care conține un singur multiplexor de 8 căi, fiind prevăzut cu o intrare de validare
+(strobare) și ieșiri complementare (Y și $overline(Y)$).
 
 #pagebreak();
 
-#figure(
-    image("ansamblu_mux16.png"),
-    caption: [Implementarea ansamblului cu MUX de 16 cai],
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+
+        #figure(
+            image("74150.png", height: 15cm),
+            caption: [MUX de 16 cai 74150 - Schema interna],
+        )
+    ],
+    [
+        #v(-3em); #figure(
+            image("pin-out-74150.jpg", height: 5cm),
+            caption: [Pin Out - Mux de 16 cai 74150],
+        ),
+        #figure(
+            image("Mux3.png", height: 5cm),
+            caption: [Tabel de adevar - Mux de 16 cai],
+        )
+    ],
 )
 
+#figure(
+    image("ansamblu_mux16.png"),
+    caption: [Implementarea ansamblului cu MUX de 16 cai. 7x74LS150],
+)
 
 === Implementarea ansamblulului functiilor logice cu DMUX-uri de 8, 16 cai
 
@@ -3539,168 +3593,181 @@ negate a variabilelor functiei.
     variantă, respectiv ŞI în a doua variantă (se vor utiliza circuite integrate realizate în tehnologia CMOS).
 ]
 
+Circuitele demultiplexoare (DMUX-urile) realizează operația inversă multiplexării: ele distribuie un semnal de pe o
+singură cale de intrare pe mai multe căi de ieșire, în funcție de adresa selectată (motiv pentru care se mai numesc și
+circuite distribuitoare @moldo).
+
+Un demultiplexor este un circuit logic combinațional care are, în cazul general, o intrare de date $I$, $n$ intrări de
+selecție (adresă) și $2^n$ ieșiri. Starea ieșirii $Z_j$ la un moment dat se exprimă astfel:
+
+$
+    Z_j = cases(
+        I & "pentru" j = k,
+        0 & "pentru" j != k
+    )
+$
+
+unde $k$ este adresa zecimală formată de variabilele de selecție.
+
+Pentru a ilustra funcționarea internă, se poate analiza un demultiplexor de 8 căi ($1:8$), prevăzut cu o intrare de
+date/strobare $G$, trei intrări de selecție ($C$, $B$ și $A$, unde $C$ este cel mai semnificativ bit) și opt ieșiri
+($Y_0, dots, Y_7$). Expresiile ieșirilor pun în evidență faptul că circuitul generează toți termenii canonici asociați
+variabilelor de selecție, înmulțiți cu intrarea de strobare:
+
+$
+    Y_0 & = overline(C) dot overline(B) dot overline(A) dot G & quad quad Y_4 & = C dot overline(B) dot overline(A) dot G \
+    Y_1 & = overline(C) dot overline(B) dot A dot G           & quad quad Y_5 & = C dot overline(B) dot A dot G \
+    Y_2 & = overline(C) dot B dot overline(A) dot G           & quad quad Y_6 & = C dot B dot overline(A) dot G \
+    Y_3 & = overline(C) dot B dot A dot G                     & quad quad Y_7 & = C dot B dot A dot G
+$
+
+Această caracteristică (realizarea implicită a nivelului logic ȘI) permite implementarea oricărei funcții logice de $n$
+variabile dată sub forma canonică disjunctivă (FCD) cu ajutorul unui DMUX.
+
+#quote(block: true)[
+    *Notă:* Spre deosebire de multiplexoare (care includ nivelul logic SAU intern și furnizează direct rezultatul la o
+    singură ieșire), utilizarea demultiplexoarelor presupune preluarea termenilor canonici activi de la ieșirile
+    specifice și introducerea lor într-o poartă logică pentru a realiza nivelul sumator (SAU) din exterior. Nici în
+    acest caz nu este necesară minimizarea matematică a funcțiilor.
+]
+
+În conformitate cu cerințele proiectului, pentru implementarea celor 5 variabile de intrare se vor aborda următoarele
+două variante (utilizând tehnologia CMOS):
+
+- *Implementarea cu DMUX-uri de 8 căi*: Nivelul logic SAU extern va fi realizat exclusiv cu porți logice *ȘI-NU*
+- *Implementarea cu DMUX-uri de 16 căi*: Nivelul logic SAU extern va fi realizat folosind porți logice *ȘI*
+
+#pagebreak();
+
 
 ==== Implementarea ansamblului cu DMUX-uri de 8 cai
+
+Pentru prima variantă, generarea celor 32 de termeni canonici (specifici celor 5 variabile de intrare, x_1) necesită
+utilizarea a patru circuite integrate 74HC138 (DMUX 3:8). Arhitectura circuitului presupune o structură în cascadă.
+Astfel, variabilele cu semnificația cea mai mică (#x4, #x5) sunt conectate în paralel la intrările de selecție C, B, A
+ale tuturor celor patru cipuri (unde #x5 reprezintă LSB și se conectează la A).
+
+Variabilele cele mai semnificative (#x1 și #x2) funcționează ca semnale de comandă principale, asigurând activarea unui
+singur demultiplexor la un moment dat. Circuitul 74HC138 prezintă două particularități esențiale pentru această
+implementare:
+
++ Ieșirile sunt active pe nivel scăzut (când un termen canonic este selectat, ieșirea corespunzătoare trece în `0`
+    logic, restul rămânând la `1` logic).
++ Dispune de trei pini de strobare (Enable) cu polarități mixte: un pin activ pe nivel ridicat (G_1) și doi pini activi
+    pe nivel scăzut (overline(G_(2A)) și overline(G_(2B))).
+
+Pentru ca un circuit 74HC138 să devină activ (să distribuie semnalul spre ieșiri), condiția internă impune ca semnalele
+de pe pinii de strobare să fie $G_1 = 1, overline(G_(2A)) = 0$ și $overline(G_(2B)) = 0$. Prezența acestor trei pini
+permite decodificarea stărilor variabilelor x_1 și x_2 prin conectarea lor directă la tensiunea de alimentare (VCC), la
+masă (GND) sau la intrările circuitelor, minimizând necesarul de porți logice externe. Modul de conectare este detaliat
+în tabelul de mai jos:
+
+
+#align(center)[
+    #table(
+        columns: (auto, auto, auto, auto, 1fr, 1fr, 1fr),
+        align: center + horizon,
+        stroke: 0.5pt + luma(120),
+        inset: 4pt,
+
+        table.cell(rowspan: 2)[*Circuit DMUX*],
+        table.cell(rowspan: 2)[*Termeni canonici (zecimal)*],
+        table.cell(colspan: 2)[*Starea variabilelor*],
+        table.cell(colspan: 3)[*Conexiunile pinilor de strobare*],
+
+        [$x_1$], [$x_2$], [$G_1$ (Activ `1`)], [$overline(G_(2A))$ (Activ `0`)], [$overline(G_(2B))$ (Activ `0`)],
+
+        [Cipul 0], [0 -- 7], [0], [0], [$V C C$], [$x_1$], [$x_2$],
+        [Cipul 1], [8 -- 15], [0], [1], [$x_2$], [$x_1$], [$G N D$],
+        [Cipul 2], [16 -- 23], [1], [0], [$x_1$], [$x_2$], [$G N D$],
+        [Cipul 3], [24 -- 31], [1], [1], [$x_1$], [$overline(x_2)$], [$G N D$],
+    )
+]
+
+
+Datorită faptului că circuitul 74HC138 furnizează la ieșire termenii canonici negați ($overline(m_i)$), extragerea lor
+și realizarea funcției logice impun utilizarea porților ȘI-NU (NAND). Conform teoremelor lui De Morgan, aplicarea unor
+semnale active pe nivel scăzut la intrările unei porți ȘI-NU echivalează din punct de vedere matematic cu funcționarea
+unei porți SAU ($overline(
+    overline(A)
+    dot overline(B)
+) = A + B$). Astfel, funcțiile logice $f_a ... f_g$ sunt implementate conectând ieșirile DMUX-ului corespunzătoare
+valorilor de `1` din tabelul de adevăr direct în porțile ȘI-NU, realizând nivelul sumator cerut de enunț.
+
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+        #figure(
+            image("1-to-8-demux-circuit-diagram.jpg", height: 5cm),
+            caption: [Structura interioara a DMUX $2^3:1$],
+        )
+    ],
+    [
+        #figure(
+            image("dmux8.png", height: 5cm),
+            caption: [Circuit integrat DMUX $2^3:1$],
+        )
+    ],
+)
+
 
 
 #figure(
     image("ansamblu_dmux8.png"),
-    caption: [Implementarea ansamblului cu DMUX-uri de 8 cai],
+    caption: [Ansamblul implementat cu 4x74HC138, 5x74HC30, 1x74HC20, 1x74HC133, 1x74HC00(-3)],
 )
 
 
 ==== Implementarea ansamblului cu DMUX-uri de 16 cai
-#figure(
-    image("ansamblu_dmux16.png"),
-    caption: [Implementarea ansamblului cu DMUX de 16 cai],
+
+
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+        #figure(
+            image("dmux16.png", height: 5cm),
+            caption: [Structura interioara a DMUX $2^4:1$],
+        )
+    ],
+    [
+        #figure(
+            image("dmux16_schema.png", height: 5cm),
+            caption: [Circuit integrat DMUX $2^4:1$],
+        )
+    ],
 )
 
 
 
+#figure(
+    image("ansamblu_dmux16.png"),
+    caption: [Implementarea ansamblului cu DMUX de 16 cai: 2x74HC154, 1x74HC04(-5), 1x74HC08(-1), 1x74HC11, 1x74HC21],
+)
 
 
-
-#align(center)[
-    #table(
-        columns: (auto, auto, auto, auto, 1fr),
-        align: center,
-        fill: (_, row) => if row == 0 { luma(230) } else { none },
-        [*Echivalent zecimal*],
-        [*Variabile de intrare*],
-        [*Variabile de selecție* \ ($x_4, x_5$)],
-        [*Funcția* \ ($I_k$)],
-        [*Valoarea*],
-
-        [0 - 7], [$x_1, x_2, x_3$], [0 0], [$I_0$], [$F_0(x_1, x_2, x_3)$],
-        [8 - 15], [$x_1, x_2, x_3$], [0 1], [$I_1$], [$F_1(x_1, x_2, x_3)$],
-        [16 - 23], [$x_1, x_2, x_3$], [1 0], [$I_2$], [$F_2(x_1, x_2, x_3)$],
-        [24 - 31], [$x_1, x_2, x_3$], [1 1], [$I_3$], [$F_3(x_1, x_2, x_3)$],
-    )
-]
-
-#v(1em)
-
-#align(center)[
-    #table(
-        columns: (auto, auto, auto, auto, 1fr),
-        align: center,
-        fill: (_, row) => if row == 0 { luma(230) } else { none },
-
-        // Header
-        [*Echivalent \ zecimal*],
-        [*Variabile de \ intrare* ($x_5$)],
-        [*Variabile de selecție* \ ($x_1, x_2, x_3, x_4$)],
-        [*Funcția* \ ($I_k$)],
-        [*Valoarea*],
-
-        // I_0
-        [0], [0], [0 0 0 0], [$I_0$], table.cell(rowspan: 2)[GND / VCC],
-        [1], [1], [0 0 0 0], [$I_0$],
-
-        // I_1
-        [2], [0], [0 0 0 1], [$I_1$], table.cell(rowspan: 2)[GND / VCC],
-        [3], [1], [0 0 0 1], [$I_1$],
-
-        // I_2
-        [4], [0], [0 0 1 0], [$I_2$], table.cell(rowspan: 2)[GND / VCC],
-        [5], [1], [0 0 1 0], [$I_2$],
-
-        // I_3
-        [6], [0], [0 0 1 1], [$I_3$], table.cell(rowspan: 2)[GND / VCC],
-        [7], [1], [0 0 1 1], [$I_3$],
-
-        // I_4
-        [8], [0], [0 1 0 0], [$I_4$], table.cell(rowspan: 2)[GND / VCC],
-        [9], [1], [0 1 0 0], [$I_4$],
-
-        // I_5
-        [10], [0], [0 1 0 1], [$I_5$], table.cell(rowspan: 2)[GND / VCC],
-        [11], [1], [0 1 0 1], [$I_5$],
-
-        // I_6
-        [12], [0], [0 1 1 0], [$I_6$], table.cell(rowspan: 2)[GND / VCC],
-        [13], [1], [0 1 1 0], [$I_6$],
-
-        // I_7
-        [14], [0], [0 1 1 1], [$I_7$], table.cell(rowspan: 2)[GND / VCC],
-        [15], [1], [0 1 1 1], [$I_7$],
-
-        // I_8
-        [16], [0], [1 0 0 0], [$I_8$], table.cell(rowspan: 2)[GND / VCC],
-        [17], [1], [1 0 0 0], [$I_8$],
-
-        // I_9
-        [18], [0], [1 0 0 1], [$I_9$], table.cell(rowspan: 2)[GND / VCC],
-        [19], [1], [1 0 0 1], [$I_9$],
-
-        // I_10
-        [20], [0], [1 0 1 0], [$I_{10}$], table.cell(rowspan: 2)[GND / VCC],
-        [21], [1], [1 0 1 0], [$I_{10}$],
-
-        // I_11
-        [22], [0], [1 0 1 1], [$I_{11}$], table.cell(rowspan: 2)[GND / VCC],
-        [23], [1], [1 0 1 1], [$I_{11}$],
-
-        // I_12
-        [24], [0], [1 1 0 0], [$I_{12}$], table.cell(rowspan: 2)[GND / VCC],
-        [25], [1], [1 1 0 0], [$I_{12}$],
-
-        // I_13
-        [26], [0], [1 1 0 1], [$I_{13}$], table.cell(rowspan: 2)[GND / VCC],
-        [27], [1], [1 1 0 1], [$I_{13}$],
-
-        // I_14
-        [28], [0], [1 1 1 0], [$I_{14}$], table.cell(rowspan: 2)[GND / VCC],
-        [29], [1], [1 1 1 0], [$I_{14}$],
-
-        // I_15
-        [30], [0], [1 1 1 1], [$I_{15}$], table.cell(rowspan: 2)[GND / VCC],
-        [31], [1], [1 1 1 1], [$I_{15}$],
-    )
-]
-
-
-
-
-*Notă:* Variabila $x_5$ este ignorată (Don't Care - X) deoarece liniile de selecție asigură o acoperire suficientă
-pentru deciziile de logică statică (`GND` / `VCC`).
-
-#align(center)[
-    #table(
-        columns: (auto, auto, auto, auto, auto, auto, auto),
-        align: center,
-        fill: (_, row) => if row == 0 { luma(230) } else { none },
-        [*$x_1$*], [*$x_2$*], [*Cip Activ*], [*Ieșiri Active*], [*G1 (Req: 1)*], [*G2A (Req: 0)*], [*G2B (Req: 0)*],
-        [0], [0], [DMUX 1], [$Y_0 - Y_7$], [VCC / $overline(x_1)$], [$x_1$], [$x_2$],
-        [0], [1], [DMUX 2], [$Y_8 - Y_15$], [$x_2$], [$x_1$], [GND],
-        [1], [0], [DMUX 3], [$Y_16 - Y_23$], [$x_1$], [GND], [$x_2$],
-        [1], [1], [DMUX 4], [$Y_24 - Y_31$], [$x_1$], [$overline(x_1)$], [$overline(x_2)$],
-    )
-]
-*Notă:* Semnalele din coloanele G1, G2A, G2B reprezintă o sugestie de cablare pe baza variabilelor $x_1$ și $x_2$ pentru
-a respecta starea de funcționare a decodificatorului (1, 0, 0). Selecția adreselor (C, B, A) se face în paralel pe toate
-cipurile folosind $x_3, x_4, x_5$.
-
-#align(center)[
-    #table(
-        columns: (auto, auto, auto, auto),
-        align: center,
-        fill: (_, row) => if row == 0 { luma(230) } else { none },
-        [*$x_1$*], [*Cip Activ*], [*Pini de Date (D, C, B, A)*], [*Ieșiri Active*],
-        [0], [DMUX 1], [$x_2, x_3, x_4, x_5$], [$Y_0 - Y_15$],
-        [1], [DMUX 2], [$x_2, x_3, x_4, x_5$], [$Y_16 - Y_31$],
-    )
-]
-
-
-
-
-
-
-
-
-
-
+// #align(center)[
+//     #table(
+//         columns: (auto, auto, auto, auto, 1fr),
+//         align: center,
+//         fill: (_, row) => if row == 0 { luma(230) } else { none },
+//         [*Echivalent zecimal*],
+//         [*Variabile de intrare*],
+//         [*Variabile de selecție* \ ($x_4, x_5$)],
+//         [*Funcția* \ ($I_k$)],
+//         [*Valoarea*],
+//
+//         [0 - 7], [$x_1, x_2, x_3$], [0 0], [$I_0$], [$F_0(x_1, x_2, x_3)$],
+//         [8 - 15], [$x_1, x_2, x_3$], [0 1], [$I_1$], [$F_1(x_1, x_2, x_3)$],
+//         [16 - 23], [$x_1, x_2, x_3$], [1 0], [$I_2$], [$F_2(x_1, x_2, x_3)$],
+//         [24 - 31], [$x_1, x_2, x_3$], [1 1], [$I_3$], [$F_3(x_1, x_2, x_3)$],
+//     )
+// ]
+//
 
 
 
@@ -3708,8 +3775,5 @@ cipurile folosind $x_3, x_4, x_5$.
 #pagebreak()
 
 #bibliography("bilbiography.yml")
-
-
-
 
 
