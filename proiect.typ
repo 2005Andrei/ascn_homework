@@ -717,10 +717,10 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         ))
 
         // not corners
-        #place(top + left, dx: -6.5em, dy: 2.5em, rect(
+        #place(top + left, dx: -6.1em, dy: 2.5em, rect(
             width: 2 * 2.5em,
             height: 2 * 2.5em,
-            radius: 8pt,
+            // radius: 8pt,
             stroke: (top: 2pt + blue, bottom: 2pt + blue, right: 2pt + blue, left: none),
         ))
 
@@ -728,7 +728,7 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         #place(top + left, dx: 8.5em, dy: 2.5em, rect(
             width: 2 * 2.5em,
             height: 2 * 2.5em,
-            radius: 8pt,
+            // radius: 8pt,
             stroke: (top: 2pt + blue, bottom: 2pt + blue, right: none, left: 2pt + blue),
         ))
     ]
@@ -3411,10 +3411,10 @@ denumirea alternativă a multiplexoarelor: circuite de selecție @moldo.
 
 Pentru ca la ieșire să apară întotdeauna doar intrarea selectată, trebuie ca selecția să se facă după stabilirea
 intrărilor de adresă. Din acest motiv, multiplexoarele sunt prevăzute cu o intrare suplimentară de autorizare
-(validare/strobare), adesea notată cu G (din englezescul *Gate*), care condiționează selecția fiecărei intrări. De cele
-mai multe ori, această intrare este activă în 0 logic (notată $overline(G)$), permițând funcționarea circuitului doar
-când se aplică un nivel LOW. Această intrare suplimentară poate fi folosită și la extinderea numărului de intrări, prin
-cascadarea mai multor circuite multiplexoare.
+(validare/strobare), adesea notată cu G, care condiționează selecția fiecărei intrări. De cele mai multe ori, această
+intrare este activă în 0 logic (notată $overline(G)$), permițând funcționarea circuitului doar când se aplică un nivel
+LOW. Această intrare suplimentară poate fi folosită și la extinderea numărului de intrări, prin cascadarea mai multor
+circuite multiplexoare. @moldo
 
 Utilizarea multiplexorului $2^n:1$ ca circuit logic combinațional de $n$ variabile este posibilă deoarece, datorită
 structurii sale interne, se obțin termenii canonici de $n$ variabile, cât și suma logică dintre acești termeni (nivelul
@@ -3508,7 +3508,7 @@ un circuit integrat 7404 (Hex Inverter).
     [
         #figure(
             image("74ls153.jpg", height: 5cm),
-            caption: [Cicruit Integrate: MUX 74LS152],
+            caption: [Cicruit Integrate: MUX 74LS153],
         )
     ],
     [
@@ -3654,7 +3654,7 @@ implementare:
 + Ieșirile sunt active pe nivel scăzut (când un termen canonic este selectat, ieșirea corespunzătoare trece în `0`
     logic, restul rămânând la `1` logic).
 + Dispune de trei pini de strobare (Enable) cu polarități mixte: un pin activ pe nivel ridicat (G_1) și doi pini activi
-    pe nivel scăzut (overline(G_(2A)) și overline(G_(2B))).
+    pe nivel scăzut ($overline(G_(2A)) "și" overline(G_(2B))$).
 
 Pentru ca un circuit 74HC138 să devină activ (să distribuie semnalul spre ieșiri), condiția internă impune ca semnalele
 de pe pinii de strobare să fie $G_1 = 1, overline(G_(2A)) = 0$ și $overline(G_(2B)) = 0$. Prezența acestor trei pini
@@ -3673,9 +3673,9 @@ masă (GND) sau la intrările circuitelor, minimizând necesarul de porți logic
         table.cell(rowspan: 2)[*Circuit DMUX*],
         table.cell(rowspan: 2)[*Termeni canonici (zecimal)*],
         table.cell(colspan: 2)[*Starea variabilelor*],
-        table.cell(colspan: 3)[*Conexiunile pinilor de strobare*],
+        table.cell(colspan: 3)[*Pini de strobare*],
 
-        [$x_1$], [$x_2$], [$G_1$ (Activ `1`)], [$overline(G_(2A))$ (Activ `0`)], [$overline(G_(2B))$ (Activ `0`)],
+        [$x_1$], [$x_2$], [$G_1$], [$overline(G_(2A))$], [$overline(G_(2B))$],
 
         [Cipul 0], [0 -- 7], [0], [0], [$V C C$], [$x_1$], [$x_2$],
         [Cipul 1], [8 -- 15], [0], [1], [$x_2$], [$x_1$], [$G N D$],
@@ -3743,12 +3743,43 @@ valorilor de `1` din tabelul de adevăr direct în porțile ȘI-NU, realizând n
 )
 
 
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+        #figure(
+            image("74hc154.png", height: 5cm),
+            caption: [Circuit integrat 74HC154],
+        )
+
+        #figure(
+            image("74hc04.png", height: 5cm),
+            caption: [Circuit integrat 74HC04],
+        )
+    ],
+    [
+        #figure(
+            image("74hc08", height: 5cm),
+            caption: [Circuit Integrat 74HC08],
+        )
+
+        #figure(
+            image("74hc11.jpeg", height: 5cm),
+            caption: [Circuit Integrat 74HC11],
+        )
+    ],
+)
+
+#figure(
+    image("74hc21", height: 5cm),
+    caption: [Circuit Integrat 74HC11],
+)
 
 #figure(
     image("ansamblu_dmux16.png"),
     caption: [Implementarea ansamblului cu DMUX de 16 cai: 2x74HC154, 1x74HC04(-5), 1x74HC08(-1), 1x74HC11, 1x74HC21],
 )
-
 
 // #align(center)[
 //     #table(
