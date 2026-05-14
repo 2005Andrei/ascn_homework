@@ -1,0 +1,4 @@
+1) functiile logice asociate circuitului combinational - FCD, FCC, tabel de adevar si diagrame Veitch Karnaugh
+2) FMD, FMC pt f. logice asociate decodifcatorului BCD 2 din 5 / 7 segmente (combinatii indiferente) prin Karnough 
+si McCluskey
+3) 

@@ -464,8 +464,8 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
         #fcc(
             "a",
             $
-                (#x1 + #x2 + #x3n + #x4n + #x5) dot
-                (#x1n + #x2 + #x3n + #x4 + #x5) = Pi (3, 9)
+                (#x1 + #x2 + #x3 + #x4n + #x5n) dot
+                (#x1 + #x2n + #x3 + #x4 + #x5n) = Pi (3, 9)
             $,
         ) \ \
         // b
@@ -2093,7 +2093,7 @@ posibilitățile de grupare.
             $,
         )
         $
-            F_c = Sigma(3, 6, 9, 10, 12, 17, 18, 20, 24) = Pi (2)
+            F_c = Sigma(3, 6, 9, 10, 12, 17, 18, 20, 24) = Pi (5)
         $
     ]
 
@@ -2993,7 +2993,6 @@ Functia de minimizat are urmatoarea expresie:
     ],
     align(right)[
         #align(left)[
-            Asadar, bla bla bla bla bla bla lol lmao lol cine ar fi crezut ce mama ei bag cv.
 
         ]
         #table(

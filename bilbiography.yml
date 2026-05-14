@@ -1,0 +1,47 @@
+maican1980:
+  type: book
+  title: "Sisteme numerice cu circuite integrate. Culegere de probleme"
+  author: ["Maican, S."]
+  publisher: "Editura Tehnică"
+  location: "București"
+  date: 1980
+
+stefan2000:
+  type: book
+  title: "Circuite integrate digitale. Probleme. Proiectare"
+  author: ["Ștefan, Gh. M.", "Bistriceanu, V."]
+  publisher: "Editura Albastră"
+  location: "Cluj-Napoca"
+  date: 2000
+
+wakerly2002:
+  type: book
+  title: "Circuite digitale"
+  author: ["Wakerly, J. F."]
+  publisher: "Editura Teora"
+  location: "București"
+  date: 2002
+
+wilkinson2002:
+  type: book
+  title: "Electronică digitală. Bazele proiectării"
+  author: ["Wilkinson, B."]
+  publisher: "Editura Teora"
+  location: "București"
+  date: 2002
+
+moldo:
+  type: book
+  title: "Circuite logice și comenzi secvențiale. Circuite logice combinaționale"
+  author: ["Moldoveanu, F.", "Floroian, D."]
+  publisher: "Editura Universității Transilvania din Brașov"
+  location: "Brașov"
+  date: 2003
+
+toacse2005:
+  type: book
+  title: "Electronică digitală"
+  author: ["Toacșe, Gh.", "Nicula, D."]
+  publisher: "Editura Tehnică"
+  location: "București"
+  date: 2005
