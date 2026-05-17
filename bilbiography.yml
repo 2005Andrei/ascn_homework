@@ -69,3 +69,80 @@ ti_sn7410:
   date: 1988
   url: "https://www.ti.com/lit/gpn/SN74LS10"
   organization: "Texas Instruments Incorporated"
+ti_sn74ls04:
+  type: book
+  title: "SN5404, SN54LS04, SN54S04, SN7404, SN74LS04, SN74S04 Hex Inverters"
+  author: "Texas Instruments"
+  date: 1988
+  url: "https://www.ti.com/lit/ds/symlink/sn74ls04.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74ls150:
+  type: book
+  title: "SN54150, SN74150, SN54LS150, SN74LS150 Data Selectors/Multiplexers"
+  author: "Texas Instruments"
+  date: 1988
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74ls153:
+  type: book
+  title: "SN54153, SN54LS153, SN54S153, SN74153, SN74LS153, SN74S153 Dual 4-Line to 1-Line Data Selectors/Multiplexers"
+  author: "Texas Instruments"
+  date: 1988
+  url: "https://www.ti.com/lit/ds/symlink/sn74ls153.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74hc00:
+  type: book
+  title: "SN74HC00 Quadruple 2-Input Positive-NAND Gates"
+  author: "Texas Instruments"
+  date: 2003
+  url: "https://www.ti.com/lit/ds/symlink/sn74hc00.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74hc08:
+  type: book
+  title: "SN74HC08 Quadruple 2-Input Positive-AND Gates"
+  author: "Texas Instruments"
+  date: 2003
+  url: "https://www.ti.com/lit/ds/symlink/sn74hc08.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74hc11:
+  type: book
+  title: "SN74HC11 Triple 3-Input Positive-AND Gates"
+  author: "Texas Instruments"
+  date: 2003
+  url: "https://www.ti.com/lit/ds/symlink/sn74hc11.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74hc20:
+  type: book
+  title: "SN74HC20 Dual 4-Input Positive-NAND Gates"
+  author: "Texas Instruments"
+  date: 2003
+  url: "https://www.ti.com/lit/ds/symlink/sn74hc20.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74hc138:
+  type: book
+  title: "SN74HC138 3-Line to 8-Line Decoders/Demultiplexers"
+  author: "Texas Instruments"
+  date: 2003
+  url: "https://www.ti.com/lit/ds/symlink/sn74hc138.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn74hc154:
+  type: book
+  title: "SN74HC154 4-Line to 16-Line Decoders/Demultiplexers"
+  author: "Texas Instruments"
+  date: 2003
+  url: "https://www.ti.com/lit/ds/symlink/sn74hc154.pdf"
+  organization: "Texas Instruments Incorporated"
+ti_cd4001:
+  type: book
+  title: "CD4000B, CD4001B, CD4002B, CD4025B CMOS NOR Gates Datasheet"
+  author: "Texas Instruments"
+  date: 2003
+  url: "https://www.ti.com/lit/ds/symlink/cd4001b.pdf"
+  organization: "Texas Instruments Incorporated"
