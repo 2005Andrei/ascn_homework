@@ -45,3 +45,27 @@ toacse2005:
   publisher: "Editura Tehnică"
   location: "București"
   date: 2005
+
+ti_sn74ls00:
+  type: book
+  title: "SN54/74LS00, SN54/74S00 Quadruple 2-Input Positive-NAND Gates Datasheet"
+  author: "Texas Instruments"
+  date: 1983
+  url: "https://www.ti.com/lit/ds/symlink/sn74ls00.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn7400:
+  type: book
+  title: "SN5400, SN54LS00, SN54S00, SN7400, SN74LS00, SN74S00 Quad 2-Input NAND Gates"
+  author: "Texas Instruments"
+  date: 1988
+  url: "https://www.ti.com/lit/ds/symlink/sn7400.pdf"
+  organization: "Texas Instruments Incorporated"
+
+ti_sn7410:
+  type: book
+  title: "SN5410, SN54LS10, SN54S10, SN7410, SN74LS10, SN74S10 Triple 3-Input NAND Gates"
+  author: "Texas Instruments"
+  date: 1988
+  url: "https://www.ti.com/lit/gpn/SN74LS10"
+  organization: "Texas Instruments Incorporated"

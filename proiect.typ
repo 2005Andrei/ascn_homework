@@ -2012,7 +2012,6 @@ completă a afișajului, transformând decodificatorul într-un sistem capabil s
     #fmd(
         "e",
         $
-            // #x2 #x4n #x5n + #x4 #x5n + #x2n #x3n #x5n
             #x1n #x3 #x4n + #x1 #x3n #x5n
         $,
     )
@@ -3264,9 +3263,37 @@ optimizări între funcții, asigurând o claritate maximă a fluxului de semnal
 
 
 #figure(
+    image("fa_ci.png"),
+    caption: [Functia a. Circuite Integrate folosite: 1x7400],
+)
+
+
+#figure(
+    image("Fa_sim.png"),
+    caption: [Functia a. Simulare ORCAD.],
+)
+
+
+
+
+#figure(
     image("fb.png"),
     caption: [Functia b. Circuite Integrate folosite: 1x7400],
 )
+
+
+#figure(
+    image("fb_ci.png"),
+    caption: [Functia b. Circuite Integrate folosite: 1x7400],
+)
+
+
+#figure(
+    image("Fb_sim.png"),
+    caption: [Functia b. Simulare ORCAD.],
+)
+
+
 
 
 #figure(
@@ -3275,26 +3302,98 @@ optimizări între funcții, asigurând o claritate maximă a fluxului de semnal
 )
 
 #figure(
+    image("fc_ci.png"),
+    caption: [Functia c. Circuite Integrate folosite: 1x7400(-3)],
+)
+
+
+#figure(
+    image("Fc_sim.png"),
+    caption: [Functia c. Simulare ORCAD.],
+)
+
+
+
+
+#figure(
     image("fd.png"),
     caption: [Functia d. Circuite Integrate folosite: 1x7400(-2)],
 )
+
+
+#figure(
+    image("fd_ci.png"),
+    caption: [Functia d. Circuite Integrate folosite: 1x7400(-2)],
+)
+
+
+#figure(
+    image("Fd_sim.png"),
+    caption: [Functia d. Simulare ORCAD.],
+)
+
+
+
 
 #figure(
     image("fe.png"),
     caption: [Functia e. Circuite Integrate folosite: 1x7400(-1), 1x7410(-1)],
 )
 
+
+#figure(
+    image("fe_ci.png"),
+    caption: [Functia e. Circuite Integrate folosite: 1x7400(-1), 1x7410(-1)],
+)
+
+
+#figure(
+    image("Fe_sim.png"),
+    caption: [Functia e. Simulare ORCAD.],
+)
+
+
+
+
 #figure(
     image("ff.png"),
     caption: [Functia f. Circuite Integrate folosite: $1$x7400],
 )
+
+
+#figure(
+    image("ff_ci.png"),
+    caption: [Functia f. Circuite Integrate folosite: $1$x7400],
+)
+
+
+#figure(
+    image("Ff_sim.png"),
+    caption: [Functia f. Simulare ORCAD.],
+)
+
+
+
 
 #figure(
     image("fg.png"),
     caption: [Functia g. Circuite Integrate folosite: 1x7410(-2), 2x7400(-3)],
 )
 
+
+#figure(
+    image("fg_ci.png"),
+    caption: [Functia g. Circuite Integrate folosite: 1x7410(-2), 2x7400(-3)],
+)
 #pagebreak()
+
+
+#figure(
+    image("Fg_sim.png"),
+    caption: [Functia g. Simulare ORCAD.],
+)
+
+
 
 
 #align(left)[
@@ -3313,6 +3412,13 @@ necesare.
     image("ansamblu1.png"),
     caption: [Implementarea in prima varianta a ansamblului functiilor],
 )
+
+
+#figure(
+    image("ansamblu1_sim.png"),
+    caption: [Implementarea in prima varianta a ansamblului functiilor],
+)
+
 
 #pagebreak()
 
@@ -3344,10 +3450,46 @@ Pentru a adapta funcțiile la poarta universală SAU-NU, am recurs la transforma
 // implementate cu porti SI-NU in tehnologia TTL conform implementarilor din sectiunea anterioara.
 
 
+#grid(
+    columns: (1fr, 1fr),
+    gutter: 2em,
+    align: horizon,
+    [
+        #figure(
+            image("74hc154.png", height: 5cm),
+            caption: [Circuit integrat 74HC154],
+        )
+
+        #figure(
+            image("74hc04.png", height: 5cm),
+            caption: [Circuit integrat 74HC04],
+        )
+    ],
+    [
+        #figure(
+            image("74hc08", height: 5cm),
+            caption: [Circuit Integrat 74HC08],
+        )
+
+        #figure(
+            image("74hc11.jpeg", height: 5cm),
+            caption: [Circuit Integrat 74HC11],
+        )
+    ],
+)
+
+#figure(
+    image("74hc21", height: 5cm),
+    caption: [Circuit Integrat 74HC11],
+)
+
+
 #figure(
     image("ansamblu-ttl-cmos.png"),
     caption: [Implementarea in a doua varianta a ansamblului functiilor],
 )
+
+
 
 #pagebreak();
 
@@ -3523,10 +3665,14 @@ un circuit integrat 7404 (Hex Inverter).
 #pagebreak();
 
 #figure(
-    image("ansamblu_mux4.png"),
-    caption: [Implementarea ansamblului cu MUX de 4 cai. 4x74LS153, 1x7404(-3)],
+    image("Fb_mux4.png"),
+    caption: [Implementarea functiei segmentului B cu MUX de 4 cai. 4x74LS153, 1x7404(-3)],
 )
 
+#figure(
+    image("FB_MUX4.png"),
+    caption: [Simularea functiei B cu MUX de 4.],
+)
 
 
 ==== Implementarea ansamblului cu MUX-uri de 16 cai
@@ -3574,8 +3720,14 @@ circuitul integrat TTL 74LS151, care conține un singur multiplexor de 8 căi, f
 )
 
 #figure(
-    image("ansamblu_mux16.png"),
+    image("Fb_Mux16.png"),
     caption: [Implementarea ansamblului cu MUX de 16 cai. 7x74LS150],
+)
+
+
+#figure(
+    image("fb_mux16.png"),
+    caption: [Simularea functiei ],
 )
 
 === Implementarea ansamblulului functiilor logice cu DMUX-uri de 8, 16 cai
@@ -3715,12 +3867,49 @@ valorilor de `1` din tabelul de adevăr direct în porțile ȘI-NU, realizând n
 
 
 #figure(
-    image("ansamblu_dmux8.png"),
-    caption: [Ansamblul implementat cu 4x74HC138, 5x74HC30, 1x74HC20, 1x74HC133, 1x74HC00(-3)],
+    image("fe_demux8.png"),
+    caption: [Functia segmentului E implementata cu DMUX-uri 8.],
+)
+
+#figure(
+    image("Fe_demux8_sim.png"),
+    caption: [Simularea functiei segmentului E implementata cu DMUX-uri 8.],
 )
 
 
 ==== Implementarea ansamblului cu DMUX-uri de 16 cai
+
+Pentru a implementa ansamblul funcțiilor logice dependente de 5 variabile ($x_1, x_2, x_3, x_4, x_5$) utilizând
+decodificatoare/demultiplexoare de 16 căi, a fost necesară cascadarea a două astfel de circuite integrate. Deoarece un
+singur DMUX 1:16 dispune de doar 4 intrări de selecție, acesta poate decodifica un maximum de 16 stări (mintermi).
+
+Pentru a acoperi toate cele 32 de combinații posibile ale codului, variabila de ordin cel mai mare ($x_1$) a fost
+utilizată pentru a comuta activitatea între cele două circuite, folosind pinii de validare (Enable) ai acestora.
+Celelalte patru variabile ($x_2, x_3, x_4, x_5$) au fost conectate în paralel la pinii de adresă D, C, B, și respectiv A
+ai ambelor circuite.
+
+Logica de selecție funcționează astfel:
+- Primul DMUX este validat atunci când $x_1 = 0$. Pinul său de validare `G1` (activ pe nivel logic LOW) este conectat
+    direct la $x_1$, iar `G2` este legat la masă (GND). Astfel, primul circuit decodifică mintermii de la 0 la 15.
+- Al doilea DMUX este validat atunci când $x_1 = 1$. Pinul său `G1` este conectat la variabila negată $overline(x_1)$
+    (obținută printr-o poartă inversoare sau ȘI-NU cu intrările scurtcircuitate), iar `G2` este la masă. Astfel, al
+    doilea circuit decodifică mintermii de la 16 la 31.
+
+Ieșirile active, corespunzătoare mintermilor necesari fiecărei funcții, vor fi ulterior însumate utilizând poarta logică
+finală, conform metodei standard de sinteză.
+
+#v(1em)
+
+#align(center)[
+    #table(
+        columns: (auto, auto, auto, auto, auto, auto, auto, auto),
+        align: center + horizon,
+        stroke: 0.5pt + luma(150),
+        [*Circuit Integrat*], [*Mintermi*], [*G1*], [*G2*], [*D*], [*C*], [*B*], [*A*],
+        [DMUX 1], [0 -- 15], [$x_1$], [GND], [$x_2$], [$x_3$], [$x_4$], [$x_5$],
+        [DMUX 2], [16 -- 31], [#x1], [GND], [$x_2$], [$x_3$], [$x_4$], [$x_5$],
+    )
+]
 
 
 #grid(
@@ -3742,41 +3931,13 @@ valorilor de `1` din tabelul de adevăr direct în porțile ȘI-NU, realizând n
 )
 
 
-#grid(
-    columns: (1fr, 1fr),
-    gutter: 2em,
-    align: horizon,
-    [
-        #figure(
-            image("74hc154.png", height: 5cm),
-            caption: [Circuit integrat 74HC154],
-        )
-
-        #figure(
-            image("74hc04.png", height: 5cm),
-            caption: [Circuit integrat 74HC04],
-        )
-    ],
-    [
-        #figure(
-            image("74hc08", height: 5cm),
-            caption: [Circuit Integrat 74HC08],
-        )
-
-        #figure(
-            image("74hc11.jpeg", height: 5cm),
-            caption: [Circuit Integrat 74HC11],
-        )
-    ],
-)
-
-#figure(
-    image("74hc21", height: 5cm),
-    caption: [Circuit Integrat 74HC11],
-)
-
 #figure(
     image("ansamblu_dmux16.png"),
+    caption: [Implementarea ansamblului cu DMUX de 16 cai: 2x74HC154, 1x74HC04(-5), 1x74HC08(-1), 1x74HC11, 1x74HC21],
+)
+
+#figure(
+    image("Fe_demux16_sim.png"),
     caption: [Implementarea ansamblului cu DMUX de 16 cai: 2x74HC154, 1x74HC04(-5), 1x74HC08(-1), 1x74HC11, 1x74HC21],
 )
 
@@ -3798,6 +3959,301 @@ valorilor de `1` din tabelul de adevăr direct în porțile ȘI-NU, realizând n
 //     )
 // ]
 //
+
+
+
+
+#pagebreak();
+
+
+
+
+=== Calculul timpilor de propagare pentru schemele logice obținute
+
+#rect(
+    fill: rgb("f0f0f0"),
+    inset: 12pt,
+    radius: 4pt,
+    width: 100%,
+)[
+    #text(weight: "bold")[`Cerința Rezolvată în această Secțiune:`]
+    Să se calculeze timpii de propagare „intrare-ieşire”, pentru toate schemele logice obținute.
+]
+
+
+Timpul de propagare este notat cu $t_p$ și măsurat de regulă în ns. El reprezintă timpul scurs în intervalul în care se
+modifică o variabilă la intrare și răspunsul ajunge la ieșirea porții logice. Formula de calcul pentru timpii de
+propagare este următoarea:
+
+$ t_p = 1/2 (t_"PLH" + t_"PHL") $
+
+#align(center)[
+    *Tab. 3.3.1 Tabel cu timpii de propagare pentru porțile logice utilizate (TTL - Familia LS)*
+
+    #table(
+        columns: (auto, auto, auto, auto, auto),
+        align: center + horizon,
+        stroke: 0.5pt + luma(150),
+        [*Circuit/Poartă*], [*Tehnologia*], [*$t_"PLH"$\n[ns]*], [*$t_"PHL"$\n[ns]*], [*$t_p$\n[ns]*],
+        [74LS00], [TTL], [10], [10], [10],
+        [74LS10], [TTL], [10], [10], [10],
+        [74LS04], [TTL], [10], [10], [10],
+        [74LS153], [TTL], [14], [20], [17],
+        [74LS150], [TTL], [35], [35], [35],
+    )
+]
+#v(1em)
+
+#align(center)[
+    *Tab. 3.3.2 Tabel cu timpii de propagare pentru porțile logice utilizate (CMOS)*
+
+    #table(
+        columns: (auto, auto, auto, auto, auto),
+        align: center + horizon,
+        stroke: 0.5pt + luma(150),
+        [*Circuit/Poartă*], [*Tehnologia*], [*$t_"PLH"$\n[ns]*], [*$t_"PHL"$\n[ns]*], [*$t_p$\n[ns]*],
+        [74HC00], [CMOS], [7], [7], [7],
+        [74HC20], [CMOS], [10], [10], [10],
+        [74HC138], [CMOS], [15], [15], [15],
+    )
+]
+#v(1em)
+
+*Calcule prealabile $t_p$ pentru integratele utilizate:*
+74LS00: $t_p = 1/2 (10 + 10) = 10 " ns"$ \
+74LS10: $t_p = 1/2 (10 + 10) = 10 " ns"$ \
+74LS04: $t_p = 1/2 (10 + 10) = 10 " ns"$ \
+74LS153: $t_p = 1/2 (14 + 20) = 17 " ns"$ \
+74LS150: $t_p = 1/2 (35 + 35) = 35 " ns"$ \
+74HC00: $t_p = 1/2 (7 + 7) = 7 " ns"$ \
+74HC20: $t_p = 1/2 (10 + 10) = 10 " ns"$ \
+74HC138: $t_p = 1/2 (15 + 15) = 15 " ns"$
+
+#v(1em)
+*Calculul timpilor de propagare pentru schemele logice implementate:*
+(Nota: s-a luat în calcul calea critică, reprezentând numărul maxim de porți/blocuri înseriate)
+
+Funcția a (1x74LS00): $t_p = 3 times 10 = 30 " ns"$ \
+Funcția b (1x74LS00): $t_p = 3 times 10 = 30 " ns"$ \
+Funcția c (1x74LS00): $t_p = 1 times 10 = 10 " ns"$ \
+Funcția d (1x74LS00): $t_p = 2 times 10 = 20 " ns"$ \
+Funcția e (1x74LS00, 1x74LS10): $t_p = 3 times 10 = 30 " ns"$ \
+Funcția f (1x74LS00): $t_p = 3 times 10 = 30 " ns"$ \
+Funcția g (1x74LS10, 2x74LS00): $t_p = 3 times 10 = 30 " ns"$ \
+Funcția b (MUX 4 căi - 4x74LS153, 1x74LS04): $t_p = 1 times 10 ("74LS04") + 1 times 17 ("74LS153") = 27 " ns"$ \
+Ansamblu (MUX 16 căi - 1x74LS150): $t_p = 1 times 35 ("74LS150") = 35 " ns"$ \
+Funcția E (DMUX 8 căi - CMOS 1x74HC138, 1x74HC20): $t_p = 1 times 15 ("74HC138") + 1 times 10 ("74HC20") = 25 " ns"$
+
+#v(2em)
+
+=== Calculul puterilor disipate pentru toate schemele logice obținute
+
+#rect(
+    fill: rgb("f0f0f0"),
+    inset: 12pt,
+    radius: 4pt,
+    width: 100%,
+)[
+    #text(weight: "bold")[`Cerința Rezolvată în această Secțiune:`]
+    Să se calculeze puterile disipate pentru toate schemele logice obținute.
+]
+
+Consumul de putere $P_d$ pentru o familie de circuite logice realizate cu circuite integrate, rezultă ca suma a două
+componente de putere, una statică, $P_"dcc"$, și alta dinamică, $P_"dca"$.
+
+La familia TTL, componenta $P_"dcc"$ reprezintă, valoric, componenta principală. Puterea disipată pentru o astfel de
+familie se calculează după următoarea formulă:
+$ P_"dcc" = V_{C C} times (I_"CCH" + I_"CCL") / 2 $
+
+La familia CMOS, componenta continuă este neglijabilă. Puterea disipată pentru o astfel de familie se calculează după
+următoarea formulă:
+$ P_"dca" = (C_P + C_L) times V_{C C}^2 times f $
+
+*Semnificații mărimi:*
+- $I_"CCH"$, $I_"CCL"$ reprezintă curenții absorbiți de circuit de la sursă în starea High, respectiv Low;
+- $V_{C C}$ este tensiunea sursei de alimentare având valoarea de $5 " V"$;
+- $C_P, C_L$ reprezintă capacitatea proprie a porții, respectiv capacitatea de sarcină echivalentă din circuit
+    ($50 " pF"$ per ieșire logică), exprimate în farazi;
+- $f$ reprezintă frecvența semnalelor de comandă, considerată cu valoarea $10^5 " Hz"$.
+
+#v(1em)
+#align(center)[
+    *Tab. 3.4.1 Valorile curenților absorbiți pentru integratele TTL (LS)*
+
+    #table(
+        columns: (auto, auto, auto, auto),
+        align: center + horizon,
+        stroke: 0.5pt + luma(150),
+
+        [*Circuit integrat*], [*$I_"CCH"$\n[mA]*], [*$I_"CCL"$\n[mA]*], [*$P_"dcc"$\n[mW]*],
+        [74LS00], [1.6], [4.4], [15],
+        [74LS10], [1.2], [3.3], [11.25],
+        [74LS04], [1.2], [3.2], [11],
+        [74LS153], [6], [10], [40],
+        [74LS150], [14], [14], [70],
+    )
+]
+
+#v(1em)
+#align(center)[
+    *Tab. 3.4.2 Valorile capacităților parazite pentru integratele CMOS*
+
+    #table(
+        columns: (auto, auto, auto, auto),
+        align: center + horizon,
+        stroke: 0.5pt + luma(150),
+
+        [*Circuit integrat*], [*$C_p$\n[pF]*], [*$C_L$\n[pF]*], [*$P_"dca"$\n[mW]*],
+        [74HC00], [20], [50], [0.175],
+        [74HC20], [20], [50], [0.175],
+        [74HC138], [45], [50], [0.237],
+    )
+]
+#v(1em)
+
+*Exemple de calcul puteri disipate unitare:*
+74LS00: $P_"dcc" = 5 times (1.6 + 4.4) / 2 = 15 " mW"$ \
+74LS10: $P_"dcc" = 5 times (1.2 + 3.3) / 2 = 11.25 " mW"$ \
+74HC20: $P_"dca" = (20 + 50) times 10^(-12) times 25 times 10^5 = 0.175 " mW"$ \
+74HC138: $P_"dca" = (45 + 50) times 10^(-12) times 25 times 10^5 = 0.237 " mW"$
+
+#v(1em)
+*Calculul puterilor pentru schemele logice realizate:*
+(Nota: se calculează consumul total însumând capsulele de circuite integrate utilizate efectiv pe placă)
+
+Funcția a (1x74LS00): $P_d = 1 times 15 = 15 " mW"$ \
+Funcția b (1x74LS00): $P_d = 1 times 15 = 15 " mW"$ \
+Funcția c (1x74LS00): $P_d = 1 times 15 = 15 " mW"$ \
+Funcția d (1x74LS00): $P_d = 1 times 15 = 15 " mW"$ \
+Funcția e (1x74LS00, 1x74LS10): $P_d = 1 times 15 + 1 times 11.25 = 26.25 " mW"$ \
+Funcția f (1x74LS00): $P_d = 1 times 15 = 15 " mW"$ \
+Funcția g (2x74LS00, 1x74LS10): $P_d = 2 times 15 + 1 times 11.25 = 41.25 " mW"$ \
+Funcția b cu MUX 4 căi (4x74LS153, 1x74LS04): $P_d = 4 times 40 ("74LS153") + 1 times 11 ("74LS04") = 171 " mW"$ \
+Ansamblu cu MUX 16 căi (1x74LS150): $P_d = 1 times 70 ("74LS150") = 70 " mW"$ \
+Funcția E cu DMUX 8 căi (1x74HC138, 1x74HC20):
+$P_d = 1 times 0.237 ("74HC138") + 1 times 0.175 ("74HC20") = 0.412 " mW"$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== Comparația soluțiilor de implementare
+
+În urma proiectării schemelor logice și a calculării parametrilor de performanță (timpul de propagare și puterea
+disipată), se pot desprinde mai multe concluzii privind compromisurile (trade-offs) pe care le implică fiecare metodă de
+implementare. Analiza comparativă a fost realizată pe trei direcții principale:
+
+==== Comparație din punct de vedere al Puterii Disipate ($P_d$) și al Tehnologiei (TTL vs. CMOS)
+Diferența majoră de consum energetic provine din familia tehnologică aleasă:
+- *TTL Standard (ex. 7400, 7410):* Prezintă cel mai ridicat consum de putere. Funcțiile $F_e$ și $F_g$ implementate cu
+    aceste porți au atins valori foarte mari (131.25 mW, respectiv 206.25 mW), deoarece curenții statici absorbiți sunt
+    considerabili ($I_"CCL"$ ajunge la 22 mA).
+- *TTL Low-Power Schottky (LS):* Oferă un compromis mult mai bun. Implementările cu 74LS00 au redus consumul la 15 mW
+    per capsulă, fiind adecvate pentru aplicații clasice unde viteza și un consum moderat sunt acceptabile.
+- *CMOS (Seria 74HC):* Este categoric varianta optimă din punct de vedere energetic. Prin implementarea cu DMUX în
+    tehnologie CMOS, consumul a scăzut drastic la o valoare de aproximativ $1.3 " mW"$ (o reducere de peste 100 de ori
+    față de TTL standard). Acest lucru se datorează faptului că tehnologia CMOS nu consumă curent static semnificativ,
+    puterea $P_"dca"$ fiind disipată exclusiv în regim dinamic (în momentul comutării).
+
+==== Comparație din punct de vedere al Timpului de Propagare ($t_p$)
+Viteza de răspuns a circuitului depinde puternic de arhitectura aleasă:
+- *Implementarea cu porți logice (SSI):* Timpul de propagare variază strict în funcție de calea critică. O funcție bine
+    minimizată (precum $F_c$) trece printr-un singur nivel logic ($10 " ns"$). Totuși, funcțiile complexe ($F_e, F_g$)
+    necesită 3 niveluri logice, ajungând la $55.5 " ns"$.
+- *Implementarea cu Multiplexoare (MUX):* Timpul de propagare este constant (ex. $35 " ns"$ pentru 74150), indiferent de
+    complexitatea funcției logice inițiale. Este o soluție excelentă pentru garantarea unui timp de întârziere
+    predictibil.
+- *Implementarea cu Demultiplexoare (DMUX):* Timpul se obține însumând întârzierea decodificatorului (15 ns) cu cea a
+    porții colectoare de la ieșire (10ns pt. 74HC20), rezultând un timp mediu competitiv ($32 " ns"$).
+
+==== Comparație din punct de vedere al Complexității Hardware și al Flexibilității
+- *Porți logice independente (ȘI-NU / SAU-NU):* Metoda este eficientă hardware doar dacă funcțiile sunt foarte simple
+    sau se pot minimiza masiv (prin diagrame Karnaugh sau metoda Quine-McCluskey). Pentru funcții complexe, duce la un
+    număr mare de capsule (cablaj stufos). În plus, logica este "cablată rigid" -- orice modificare a funcției necesită
+    refacerea fizică a circuitului.
+- *Multiplexoare (MUX):* Reprezintă o implementare extrem de compactă. Orice funcție de $n$ variabile se poate
+    implementa cu un singur circuit integrat (MUX $2^n$ căi). Mai mult, circuitul este "programabil": modificarea
+    funcției logice se face trivial, prin reconectarea intărilor de date la masă (GND) sau la $V_{C C}$ (HIGH), fără a
+    schimba structura circuitului.
+- *Demultiplexoare (DMUX):* Este soluția hardware supremă pentru generarea *mai multor funcții simultan* (cum este cazul
+    unui decodificator BCD/7 segmente). DMUX-ul acționează ca un generator universal de mintermi. Astfel, partea de
+    decodificare se face o singură dată (pe un singur cip central), iar funcțiile de ieșire se obțin prin simpla
+    adăugare a unor porți colectoare (ȘI / ȘI-NU) care preiau doar mintermii necesari.
+
+== Concluzie finală
+Dacă se urmărește un *consum minim de energie*, tehnologia CMOS este obligatorie. Dacă se dorește o *reducere a timpului
+de proiectare și ușurință în modificare*, MUX-urile sunt soluția optimă. Iar pentru *proiectarea decodificatoarelor cu
+ieșiri multiple* (cum este cazul de față), abordarea folosind un bloc DMUX centralizat și porți colectoare pe ieșiri
+reprezintă cel mai elegant și eficient compromis tehnologic.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
